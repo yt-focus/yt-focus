@@ -1,10 +1,52 @@
-#contents.style-scope.ytd-rich-grid-renderer, .style-scope.ytd-two-column-browse-results-renderer{
+#contents.style-scope.ytd-rich-grid-renderer,
+.style-scope.ytd-two-column-browse-results-renderer,
+#items.style-scope.ytd-mini-guide-renderer{
     display: none;
 }
 
-#center {
-    transform: translate(1em, 30vh) scale(1.2);
+#container{
+    flex-direction: column !important;
+    gap: 2em;
     
 }
 
+#center.ytd-masthead {
+    width: 100%;
+    max-width: 600px;
+}
+
+@media (max-width: 656px) {
+    #center.ytd-masthead {
+        justify-content: center !important;
+    }
+    #start.ytd-masthead {
+        margin-left: 0em !important;
+    }
+}
+input {
+    margin-top: .3em !important;
+}
+
+#search-icon {
+    margin-top: .6em !important;
+}
+
+#container.ytd-masthead {
+    margin-top: 35vh !important;
+
+}
+
+#start.ytd-masthead {
+    transform: scale(1.5);
+    margin-left: 7.6em;
+}
+
+
+#center.ytd-masthead {
+    transform: scale(1.2);
+}
+
+#end.ytd-masthead {
+    transform: scale(1.4);
+}
 
