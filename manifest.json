@@ -1,0 +1,38 @@
+{
+  "name": "YT Focus",
+  "version": "0.1.0",
+  "description": "YT without the distractions",
+  "permissions": ["tabs", "activeTab"],
+  "host_permissions": ["https://*.youtube.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.youtube.com/*"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/blur-icon.png",
+        "assets/brightness-icon.png",
+        "assets/github-icon.png",
+        "assets/greyscale-icon.png",
+        "assets/sepia-icon.png"
+      ],
+      "matches": ["https://*.youtube.com/*"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "assets/ui-icon.png",
+      "24": "assets/ui-icon.png",
+      "32": "assets/ui-icon.png"
+    },
+    "default_title": "YT Focus",
+    "default_popup": "popup.html"
+  },
+  "manifest_version": 3
+}
