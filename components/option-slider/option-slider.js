@@ -45,6 +45,10 @@ template.innerHTML = `
             display: flex;
         }
 
+        img {
+            user-select: none;
+        }
+
         .number-container {
             display: flex;
             justify-content: center;
@@ -55,7 +59,6 @@ template.innerHTML = `
             margin-top: 4px;
 
             color: var(--medium-text)
-
         }
 
         .option-slider {
@@ -65,6 +68,7 @@ template.innerHTML = `
 
         p {
             font-size: 12px;
+            user-select: none;
         }
 
         .slide-container {
