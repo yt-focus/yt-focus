@@ -54,7 +54,7 @@ body {
   height: 100%;
   background-color: rgba(22,21,19,1);
   opacity: .6;
-  z-index: 10;
+  z-index: 5;
   display: none;
 }
 
@@ -69,6 +69,8 @@ body {
   display: flex;
   justify-content: space-between;
   width: 90%;
+  z-index: 6;
+
 }
 
 .github img{
