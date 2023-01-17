@@ -44,6 +44,10 @@ body {
   height: 86px;
 }
 
+img {
+  user-select: none;
+}
+
 #logo-container {
   display: flex;
   align-items: center;

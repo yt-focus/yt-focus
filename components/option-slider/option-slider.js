@@ -11,17 +11,38 @@ template.innerHTML = `
             --black: black;
         }
 
+        .arrow {
+            height: 16px;
+            background: black;
+            border: none;  
+            cursor: pointer;
+        }
+
+        .arrow img {
+            width: 11px;
+            height: auto;
+            margin-left: -2px;
+        }
+
+        .arrow:hover {
+            background-color: var(--dark-text);
+        }
+
         .container{
             width: 227px;
         }
 
 
-        img {
+        .icon {
             width: 100%;
             height: 100%;
 
             max-width: 31px;
             max-height: 31px;
+        }
+
+        .input-container {
+            display: flex;
         }
 
         .number-container {
@@ -31,6 +52,7 @@ template.innerHTML = `
 
             width: 100%;
             height: 12px;
+            margin-top: 4px;
 
             color: var(--medium-text)
 
@@ -38,7 +60,7 @@ template.innerHTML = `
 
         .option-slider {
             display: flex;
-            gap: 15px;
+            gap: 10px;
         }
 
         p {
@@ -47,6 +69,7 @@ template.innerHTML = `
 
         .slide-container {
             position: relative;
+            display: inline-block;
         }
 
         .slider-label {
@@ -63,7 +86,7 @@ template.innerHTML = `
         .slider {
             -webkit-appearance: none;
             width: 173px;
-            height: 27px;
+            height: 28px;
             background: transparent;
         
             -webkit-transition: .2s;
@@ -110,23 +133,45 @@ template.innerHTML = `
             transition: 50ms
         }
 
+        .up-down-container {
+            display: flex;
+            flex-direction: column;
+            width: 18px;
+            height: 100%;
+        }
+
           
     </style>
     <div class="container">
         <div class="option-slider">
-            <img>
+            <img class="icon">
             <div class="slide-container">
                 <div>
-                    <div class="fill-container">
-                    <input class="slider" type="range" min="0" max="100" value="0">
-                    <span class="bar"><span class="fill"></span></span>
+                    <div class="progress-slide-container">
+
+                        <div class="input-container">
+                            <div>
+                                <div class="fill-container">
+                                        <input class="slider" type="range" min="0" max="100" value="0">
+                                        <span class="bar"><span class="fill"></span></span>
+                                        <div class="slider-label">
+                                            <p class="slider-text"></p>
+                                        </div>
+                                </div>
+                                <div class="number-container">
+                                    <p>0</p>
+                                </div>  
+                            </div>
+                            <div class="up-down-container">
+                                <button type="button" class="arrow up">
+                                    <image class="up-icon " src="assets/up-icon.png" alt="up icon">
+                                </button>
+                                <button type="button" class="arrow down">
+                                    <image class="down-icon" src="assets/down-icon.png" alt="down icon">
+                                </button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="number-container">
-                        <p>0</p>
-                    </div>  
-                </div>
-                <div class="slider-label">
-                    <p class="slider-text"></p>
                 </div>
             </div>
         </div>
@@ -143,8 +188,9 @@ class OptionSlider extends HTMLElement {
         this.shadowRoot.appendChild(template.content.
         cloneNode(true));
 
-        this.shadowRoot.querySelector("img").src =
-        this.getAttribute('icon');
+        const image = this.shadowRoot.querySelector("img");
+        image.src =this.getAttribute('icon');
+        image.alt =this.getAttribute('name' + 'icon');
 
         this.shadowRoot.querySelector(".slider-text").innerText =
         this.getAttribute('name');
