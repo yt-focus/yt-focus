@@ -1,6 +1,7 @@
 <link href="popup.css" rel="stylesheet" type="text/css" />
 <script type="module" src="popup.js"></script>
 <script type="module" src="./components/option-slider/option-slider.js"></script>
+<script type="module" src="./components/option-checkbox/option-checkbox.js"></script>
 
 
 
@@ -25,6 +26,23 @@
     <option-slider name="thumbnail greyscale" icon="assets/greyscale-icon.png"></option-slider>
     <option-slider isMiddle="true" name="brightness" icon="assets/brightness-icon.png"></option-slider>
     <option-slider name="sepia" icon="assets/sepia-icon.png"></option-slider>
+    
+    <div class="divider"></div>
+
+    <div class="checkbox-container">
+      <option-checkbox id="focus-page">focus homepage</option-checkbox>
+      <option-checkbox id="hide-comments">hide comments</option-checkbox>
+      <option-checkbox id="hide-reqs">hide recommendations</option-checkbox>
+      <option-checkbox id="lowercase">lowercase titles</option-checkbox>
+      <option-checkbox id="click-bait">remove click-bait titles</option-checkbox>
+    </div>
+  </div>
+
+  <div id="footer">
+    <a href="https://github.com/yt-focus/yt-focus" target="-blank" class="links donate">Donate</a>
+    <a href="https://github.com/yt-focus/yt-focus" target="-blank" class="links">Website</a>
+    <a href="https://github.com/yt-focus/yt-focus" target="-blank" class="links">Help</a>
+    <a href="https://github.com/yt-focus/yt-focus" target="-blank" class="github"><img src="assets/github-icon.png" alt="github icon"></a>
   </div>
   
 </div>
