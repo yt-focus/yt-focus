@@ -1,6 +1,6 @@
 const template = document.createElement("template");
 template.innerHTML = `
-
+    
     <style>
         :root {
             --prymairy: #161513;
@@ -12,7 +12,7 @@ template.innerHTML = `
         }
 
         .container{
-            
+            width: 227px;
         }
 
 
@@ -38,6 +38,7 @@ template.innerHTML = `
 
         .option-slider {
             display: flex;
+            gap: 15px;
         }
 
         p {
@@ -59,7 +60,7 @@ template.innerHTML = `
 
         .slider {
             -webkit-appearance: none;
-            width: 100%;
+            width: 173px;
             height: 27px;
             background: transparent;
             outline: 1px solid var(--black);
@@ -80,6 +81,26 @@ template.innerHTML = `
             background: var(--light-text);
             cursor: pointer;
           }
+
+          .fill-container {
+            position: relative;
+          }
+          .bar {
+            position: absolute;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 10px;
+            overflow: hidden;
+          }
+          .fill {
+            display: block;
+            width: 50%;
+            height: 100%;
+            background-color: purple;
+          }
+
           
     </style>
     <div class="container">
@@ -87,18 +108,22 @@ template.innerHTML = `
             <img>
             <div class="slide-container">
                 <div>
-                    <input class="slider" id="blur-range" type="range" min="0" max="100" value="1">
+                    <div class="fill-container">
+                        <span class="bar"><span class="fill"></span></span>
+                        <input class="slider" type="range" min="0" max="100" value="50">
+                    </div>
                     <div class="number-container">
                         <p>0</p>
                     </div>  
                 </div>
                 <div class="slider-label">
-                    <p><slot/></p>
+                    <p class="slider-text"></p>
                 </div>
             </div>
         </div>
         
     </div>
+    
 `
 
 class OptionSlider extends HTMLElement {
@@ -111,6 +136,32 @@ class OptionSlider extends HTMLElement {
 
         this.shadowRoot.querySelector("img").src =
         this.getAttribute('icon');
+
+        this.shadowRoot.querySelector(".slider-text").innerText =
+        this.getAttribute('name');
+        
+        this.shadowRoot.querySelector(".slider").id =
+        "slider-" + this.getAttribute('name').split(" ")[0];
+        console.log( "slider-" + this.getAttribute('name').split(" ")[0])
+    }
+
+    updateProgress(slider) {
+
+        console.log("hello")
+
+        const maxVal = slider.getAttribute("max");
+        const val = (slider.value / maxVal) * 100 + "%";
+
+        const counter = this.shadowRoot.querySelector(".number-container p")
+        console.log(counter);
+        counter.innerHTML = slider.value;
+        this.shadowRoot.querySelector(".fill").style.width = val;
+    }
+
+    connectedCallback() {
+        const slider = this.shadowRoot.querySelector("#slider-" + this.getAttribute('name').split(" ")[0]);
+        console.log(slider, "slider-" + this.getAttribute('name').split(" ")[0]);
+        slider.addEventListener("input", () => this.updateProgress(slider));
     }
 }
 

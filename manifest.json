@@ -2,7 +2,7 @@
   "name": "YT Focus",
   "version": "0.1.0",
   "description": "YT without the distractions",
-  "permissions": ["tabs", "activeTab"],
+  "permissions": ["tabs", "activeTab", "storage"],
   "host_permissions": ["https://*.youtube.com/*"],
   "background": {
     "service_worker": "background.js"
