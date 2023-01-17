@@ -25,7 +25,8 @@ template.innerHTML = `
         }
 
         .arrow:hover {
-            background-color: var(--dark-text);
+            filter: invert(100%);
+            z-index: 1;
         }
 
         .container{
@@ -100,7 +101,8 @@ template.innerHTML = `
         }
         
         .slider:hover {
-        opacity: 1;
+            outline: 2px solid var(--secondary);
+            border-radius: 2px;
         }
         
         .slider::-webkit-slider-thumb {
@@ -127,6 +129,9 @@ template.innerHTML = `
 
             outline: 1px solid var(--black);
         }
+
+        
+
         .fill {
             pointer-events: none;
             z-index: 0;
@@ -212,13 +217,11 @@ class OptionSlider extends HTMLElement {
 
     updateProgress(slider) {
 
-        console.log("hello")
-
         const maxVal = slider.getAttribute("max");
         const val = (slider.value / maxVal) * 100 + "%";
 
         const counter = this.shadowRoot.querySelector(".number-container p");
-        console.log(counter);
+        
         counter.innerHTML = this.getAttribute('isMiddle')? slider.value - 100 : slider.value;
         this.shadowRoot.querySelector(".fill").style.width = val;
     }

@@ -28,8 +28,8 @@ template.innerHTML = `
             height: 20px;
             width: 20px;
             background-color: var(--prymairy);
-            outline: 1px solid var(--secondary);
-            border-radius: 15%;
+            outline: 2px solid var(--secondary);
+            border-radius: 1px;
             cursor: pointer;
         }
 
@@ -38,7 +38,8 @@ template.innerHTML = `
         }
 
         input[type="checkbox"]:checked{
-            background-color: var(--secondary);
+            background-color: var(--light-text);
+            outline: 1px solid var(--light-text);
         }
 
 
