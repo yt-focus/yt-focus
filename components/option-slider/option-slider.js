@@ -48,6 +48,7 @@ template.innerHTML = `
         .slide-container {
             position: relative;
         }
+
         .slider-label {
             position: absolute;
             top: -3;
@@ -56,6 +57,7 @@ template.innerHTML = `
             align-items: center;
             justify-content: center;
             pointer-events: none;
+            z-index: 0;
         }
 
         .slider {
@@ -63,43 +65,50 @@ template.innerHTML = `
             width: 173px;
             height: 27px;
             background: transparent;
-            outline: 1px solid var(--black);
-            opacity: 0.7;
+        
             -webkit-transition: .2s;
             transition: opacity .2s;
-          }
-          
-          .slider:hover {
-            opacity: 1;
-          }
-          
-          .slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 25px;
-            height: 25px;
-            background: var(--light-text);
             cursor: pointer;
-          }
+            z-index: 1
+        }
+        
+        .slider:hover {
+        opacity: 1;
+        }
+        
+        .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 0px;
+        height: 0px;
+        }
 
-          .fill-container {
-            position: relative;
-          }
-          .bar {
+        .fill-container {
+        position: relative;
+        }
+        
+        .bar {
             position: absolute;
-            z-index: 1;
+            z-index: 0;
             left: 0;
             top: 0;
             width: 100%;
-            height: 10px;
+            height: 100%;
             overflow: hidden;
-          }
-          .fill {
+            pointer-events: none;
+            
+
+            outline: 1px solid var(--black);
+        }
+        .fill {
+            pointer-events: none;
+            z-index: 0;
             display: block;
             width: 50%;
             height: 100%;
-            background-color: purple;
-          }
+            background-color: var(--secondary);
+            transition: 50ms
+        }
 
           
     </style>
@@ -109,8 +118,8 @@ template.innerHTML = `
             <div class="slide-container">
                 <div>
                     <div class="fill-container">
-                        <span class="bar"><span class="fill"></span></span>
-                        <input class="slider" type="range" min="0" max="100" value="50">
+                    <input class="slider" type="range" min="0" max="100" value="50">
+                    <span class="bar"><span class="fill"></span></span>
                     </div>
                     <div class="number-container">
                         <p>0</p>
