@@ -236,6 +236,10 @@ class OptionSlider extends HTMLElement {
         this.updateProgress(slider);
     }
 
+    saveState() {
+        
+    }
+
     connectedCallback() {
         const slider = this.shadowRoot.querySelector("#slider-" + this.getAttribute('name').split(" ")[0]);
         slider.addEventListener("input", () => this.updateProgress(slider));

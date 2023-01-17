@@ -63,3 +63,7 @@ input {
 #guide.style-scope.ytd-app {
     z-index: 9999;
 }
+
+#guide-spacer.ytd-app {
+    display: none;
+}

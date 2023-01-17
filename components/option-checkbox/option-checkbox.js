@@ -14,13 +14,17 @@ template.innerHTML = `
             color: var(--light-text);
             font-size: 14px;
             user-select: none;
+            cursor: pointer;
         }
+
 
         .wrapper {
             display: flex;
             align-items: center;
             gap: 8px;
         }
+
+
 
         input[type="checkbox"] {
             appearance: none;
@@ -42,11 +46,14 @@ template.innerHTML = `
             outline: 1px solid var(--light-text);
         }
 
+        
 
     </style>
     <div class="wrapper">
-        <input type="checkbox">
+      
+        <input type="checkbox" class="menu-item">
         <label class="container"><slot /></label>
+      
     </div>
 `
 
@@ -62,9 +69,10 @@ class OptionCheckbox extends HTMLElement {
         const checkbox = this.shadowRoot.querySelector("input");
         const label = this.shadowRoot.querySelector("label");
 
+        console.log("broh", id)
         checkbox.name = id;
         checkbox.id = id;
-        label.for = id;
+        label.htmlFor = id;
         
     }
 
