@@ -42,7 +42,8 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
           let pathname = url.pathname.split("/")[1];
           console.log("pathsss:",pathname, "tab:", tab, "jomba",pathname === "")
           if (pathname === "") {
-            console.log("path:",pathname)
+            console.log("path:",pathname)            
+
             await chrome.scripting.insertCSS({
               files: ["focus-home.css"],
               target: { tabId: tab.id },
@@ -52,6 +53,7 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
     });
   }
 });
+
 
 
 // chrome.runtime.onInstalled.addListener((reason) => {
