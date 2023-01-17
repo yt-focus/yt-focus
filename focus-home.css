@@ -50,3 +50,7 @@ input {
     transform: scale(1.4);
 }
 
+#logo-icon {
+    filter:grayscale(100%)
+}
+
