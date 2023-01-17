@@ -1,20 +1,28 @@
 <link href="popup.css" rel="stylesheet" type="text/css" />
 <script type="module" src="popup.js"></script>
+<script type="module" src="./components/option-slider/option-slider.js"></script>
 
 <div class="container">
+  
   <div id="header">
-    <div id="logo-container">
-      <img id="logo" src="assets/menu-icon.png" alt="YT Focus logo" width="61px" height="41px">
-      <h1 id="title">Focus</h1>
-    </div>
+    <a href="https://github.com/yt-focus/yt-focus" target="_blank">
+      <div id="logo-container">
+        <img id="logo" src="assets/menu-icon.png" alt="YT Focus logo" width="61px" height="41px">
+        <h1 id="title">Focus</h1>
+      </div>
+    </a>
     
     <label class="switch">
       <input type="checkbox" checked>
       <span class="slider round"></span>
     </label>
+  </div>
 
+  <div id="main">
+    <option-slider icon="assets/blur-icon.png">recommendation blur</option-slider>
+    <option-slider icon="assets/greyscale-icon.png">thumbnail greyscale</option-slider>
+    <option-slider icon="assets/brightness-icon.png"> brightness </option-slider>
+    <option-slider icon="assets/sepia-icon.png"> sepia </option-slider>
   </div>
-  <div>
-    <div class="title">Your bookmarks for this video</div>
-  </div>
+  
 </div>
