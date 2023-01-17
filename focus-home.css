@@ -33,12 +33,12 @@ input {
 
 #container.ytd-masthead {
     margin-top: 35vh !important;
-
+    margin-right: 5em;
 }
 
 #start.ytd-masthead {
     transform: scale(1.5);
-    margin-left: 10.6em;
+    margin-left: 6em;
 }
 
 
@@ -48,9 +48,18 @@ input {
 
 #end.ytd-masthead {
     transform: scale(1.4);
+    justify-content: center !important;
+    margin-left: 5em;
 }
 
 #logo-icon {
     filter:grayscale(100%)
 }
 
+#icon.style-scope.ytd-notification-topbar-button-renderer {
+    display: none;
+}
+
+#guide.style-scope.ytd-app {
+    z-index: 9999;
+}
