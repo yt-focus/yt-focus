@@ -9,19 +9,29 @@
     });
   }
 
-  const focusHomePage = ({isOn}) => {
-    if(isOn) {
-
+  const focusMessage = async ({checked, tabId}) => {
+    console.log("yo whats up brochachoooooo", checked, tabId )
+    if(checked) {
+      await chrome.scripting.insertCSS({
+        files: ["/scripts/styles/focus-home.css"],
+        target: { tabId },
+      });
+    } else {
+      await chrome.scripting.removeCSS({
+        files: ["/scripts/styles/focus-home.css"],
+        target: { tabId: tabId },
+      });
     }
   }
 
   chrome.runtime.onMessage.addListener((obj, sender, response) => {
-    const { type, pathname, options } = obj;
-
-    switch (type) {
+    const { action, options } = obj;
+    switch (action) {
       case "FOCUS":
+        focusMessage(options);
+        break;
     }
-    
+    return true;
   });
 
 

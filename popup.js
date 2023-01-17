@@ -32,11 +32,34 @@ const getActiveTabURL = async () => {
   return tabs[0];
 }
 
+const addMenuSaveActivity = () => {
+
+  const elements = document.getElementsByClassName('menu-item');
+  for (let i = 0; i < elements.length; i++) {
+    if (i === 0)
+      elements[i].addEventListener('change', () => saveState());
+    else
+      elements[i].shadowRoot.querySelector("input")
+      .addEventListener('change', saveState);
+  }
+}
+
+async function focusToggle () {
+  const activeTab = await getActiveTabURL();
+  console.log("im being called",activeTab.id);
+  
+  chrome.tabs.sendMessage(activeTab.id, {
+    action: "FOCUS",
+    options: {
+      element: this,
+      checked: this.checked,
+      tabId: activeTab.id,
+    }
+  });
+}
+
 const addListeners = () => {
   const lightSwitch = document.getElementById("on-off");
-  console.log(lightSwitch)
-  const burger = document.getElementById("slider-recommendation");
-  console.log("burger", burger)
 
   lightSwitch.addEventListener('change', function() {
     if(!this.checked) {
@@ -46,23 +69,16 @@ const addListeners = () => {
     }
   })
 
-  const elements = document.getElementsByClassName('menu-item');
-  console.log("menu items", elements)
-  for (let i = 0; i < elements.length; i++) {
-    if (i === 0)
-      elements[i].addEventListener('change', () => saveState());
-    else
-      elements[i].shadowRoot.querySelector("input")
-      .addEventListener('change', () => saveState());
-  }
+  addMenuSaveActivity();
+
+  focusHome.addEventListener('change', focusToggle);
+
+
 
 }
 
 const setState = (state) => {
 
-
-  console.log({...state}, state.onSwitch)
-  console.log("req",reqBlur)
   onSwitch.checked = state.onSwitch;
   reqBlur.value = state.reqBlur;
   greyscale.value = state.greyscale;
@@ -85,7 +101,9 @@ const setState = (state) => {
   }
 }
 
-const saveState = () => {
+const saveState = async () => {
+
+  const activeTab = await getActiveTabURL();
 
   const state = {
     onSwitch: onSwitch.checked, 
@@ -98,16 +116,15 @@ const saveState = () => {
     isReqHidden: isReqHidden.checked,
     lowercase: lowercase.checked,
     clickBaitHidden: clickBaitHidden.checked,
+    fromTab: activeTab.id, 
   }
 
-  chrome.storage.sync.set({ state }).then(() => {
-    console.log("state set to ", {...state});
-  });
+  chrome.storage.sync.set({ state })
 }
 
 const loadState = () => {
   chrome.storage.sync.get(["state"]).then((result) => {
-    console.log("hello",result.state)
+    
     if(!result.state) {
       setState(DEFAULT);
     } else {

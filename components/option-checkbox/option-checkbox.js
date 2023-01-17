@@ -69,7 +69,6 @@ class OptionCheckbox extends HTMLElement {
         const checkbox = this.shadowRoot.querySelector("input");
         const label = this.shadowRoot.querySelector("label");
 
-        console.log("broh", id)
         checkbox.name = id;
         checkbox.id = id;
         label.htmlFor = id;

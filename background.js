@@ -25,6 +25,7 @@ const applyFocusHome = (tab) => {
 
 chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
 
+  console.log("im the id", tabId)
   if (changeInfo.status === "complete") {
 
     chrome.tabs.query({active: true, currentWindow: true}, async function(tabs) {
@@ -49,6 +50,24 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
     });
   }
 });
+
+chrome.storage.onChanged.addListener( () => {
+  console.log("no way 3987239471923470923741239784")
+  chrome.storage.sync.get(["state"]).then(async (result) => {
+    console.log("browhats up!!!",result.state)
+    if(result.state.focusHome) {
+      await chrome.scripting.insertCSS({
+        files: ["/scripts/styles/focus-home.css"],
+        target: { tabId: result.state.fromTab },
+      });
+    } else {
+      await chrome.scripting.removeCSS({
+        files: ["/scripts/styles/focus-home.css"],
+        target: { tabId: result.state.fromTab },
+      });
+    }
+  });
+})
 
 
 
