@@ -104,7 +104,7 @@ template.innerHTML = `
             pointer-events: none;
             z-index: 0;
             display: block;
-            width: 50%;
+            width: 0%;
             height: 100%;
             background-color: var(--secondary);
             transition: 50ms
@@ -118,7 +118,7 @@ template.innerHTML = `
             <div class="slide-container">
                 <div>
                     <div class="fill-container">
-                    <input class="slider" type="range" min="0" max="100" value="50">
+                    <input class="slider" type="range" min="0" max="100" value="0">
                     <span class="bar"><span class="fill"></span></span>
                     </div>
                     <div class="number-container">
@@ -149,9 +149,15 @@ class OptionSlider extends HTMLElement {
         this.shadowRoot.querySelector(".slider-text").innerText =
         this.getAttribute('name');
         
-        this.shadowRoot.querySelector(".slider").id =
-        "slider-" + this.getAttribute('name').split(" ")[0];
-        console.log( "slider-" + this.getAttribute('name').split(" ")[0])
+        const slider = this.shadowRoot.querySelector(".slider");
+        slider.id = "slider-" + this.getAttribute('name').split(" ")[0];
+
+        if(this.getAttribute('isMiddle')) {
+            slider.value = 50;
+            slider.max = 200;
+            this.shadowRoot.querySelector(".fill").style.width = "50%";
+        }
+        
     }
 
     updateProgress(slider) {
@@ -161,9 +167,9 @@ class OptionSlider extends HTMLElement {
         const maxVal = slider.getAttribute("max");
         const val = (slider.value / maxVal) * 100 + "%";
 
-        const counter = this.shadowRoot.querySelector(".number-container p")
+        const counter = this.shadowRoot.querySelector(".number-container p");
         console.log(counter);
-        counter.innerHTML = slider.value;
+        counter.innerHTML = this.getAttribute('isMiddle')? slider.value - 100 : slider.value;
         this.shadowRoot.querySelector(".fill").style.width = val;
     }
 
