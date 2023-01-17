@@ -1,0 +1,10 @@
+#contents.style-scope.ytd-rich-grid-renderer, .style-scope.ytd-two-column-browse-results-renderer{
+    display: none;
+}
+
+#center {
+    transform: translate(1em, 30vh) scale(1.2);
+    
+}
+
+
