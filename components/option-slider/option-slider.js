@@ -199,7 +199,7 @@ class OptionSlider extends HTMLElement {
         slider.id = "slider-" + this.getAttribute('name').split(" ")[0];
 
         if(this.getAttribute('isMiddle')) {
-            slider.value = 50;
+            slider.value = 100;
             slider.max = 200;
             this.shadowRoot.querySelector(".fill").style.width = "50%";
         }
@@ -219,10 +219,25 @@ class OptionSlider extends HTMLElement {
         this.shadowRoot.querySelector(".fill").style.width = val;
     }
 
+    increase(slider) {
+        slider.value = parseInt(slider.value) + 5;
+        this.updateProgress(slider);
+    }
+
+    decrease(slider) {
+        slider.value = parseInt(slider.value) - 5;
+        this.updateProgress(slider);
+    }
+
     connectedCallback() {
         const slider = this.shadowRoot.querySelector("#slider-" + this.getAttribute('name').split(" ")[0]);
-        console.log(slider, "slider-" + this.getAttribute('name').split(" ")[0]);
         slider.addEventListener("input", () => this.updateProgress(slider));
+
+        const up = this.shadowRoot.querySelector(".arrow.up");
+        up.addEventListener("click", () => this.increase(slider));
+
+        const down = this.shadowRoot.querySelector(".arrow.down");
+        down.addEventListener("click", () => this.decrease(slider));
     }
 }
 
