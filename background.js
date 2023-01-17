@@ -11,7 +11,17 @@ const DEFAULT = {
   clickBaitHidden: true,
 } 
 
-console.log("yo")
+const applyFocusHome = (tab) => {
+  chrome.storage.sync.get(["state"]).then(async (result) => {
+    console.log("browhats up!!!",result.state)
+    if(result.state.focusHome) {
+      await chrome.scripting.insertCSS({
+        files: ["/scripts/styles/focus-home.css"],
+        target: { tabId: tab.id },
+      });
+    }
+  });
+}
 
 chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
 
@@ -26,11 +36,14 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
           let pathname = url.pathname.split("/")[1];
           
           if (pathname === "") {
-            
-            await chrome.scripting.insertCSS({
-              files: ["focus-home.css"],
+            applyFocusHome(tab);
+          } else {
+            await chrome.scripting.removeCSS({
+              files: ["/scripts/styles/focus-home.css"],
               target: { tabId: tab.id },
             });
+
+
           }
         }
     });
@@ -42,12 +55,8 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
 // chrome.runtime.onInstalled.addListener((reason) => {
 //   if (reason === chrome.runtime.onInstalledReason.INSTALL) {
 //     chrome.tabs.create({
-//       url: "https://github.com/yt-focus/yt-focus"
+//       url: "https://www.youtube.com/"
 //     });
-//     chrome.storage.sync.set({state: DEFAULT}, 
-//       (result) => {
-//         console.log("bruh")
-//       });
 //   }
 
   

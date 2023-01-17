@@ -217,7 +217,3 @@ input:checked + .slider:before {
 
   user-select: none;
 }
-
-#slider-recommendation {
-  outline: 10px solid white;
-}

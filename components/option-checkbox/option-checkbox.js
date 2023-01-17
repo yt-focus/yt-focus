@@ -51,7 +51,7 @@ template.innerHTML = `
     </style>
     <div class="wrapper">
       
-        <input type="checkbox" class="menu-item">
+        <input type="checkbox">
         <label class="container"><slot /></label>
       
     </div>

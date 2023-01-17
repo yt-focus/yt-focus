@@ -67,3 +67,11 @@ input {
 #guide-spacer.ytd-app {
     display: none;
 }
+
+#search-clear-button.ytd-searchbox {
+    position: absolute;
+    justify-content: center;
+    right: .3em;
+    top: 0.7em;
+    background-color: var(--ytd-searchbox-background);
+}

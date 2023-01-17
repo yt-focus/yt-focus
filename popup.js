@@ -74,9 +74,6 @@ const setState = (state) => {
   lowercase.checked = state.lowercase;
   clickBaitHidden.checked = state.clickBaitHidden;
 
-  console.log("howdy", focusHome)
-  focusHome.checked = true;
-
   const elements = document.querySelectorAll('option-slider');
   for (let i = 0; i < elements.length; i++) {
       elements[i].shadowRoot.querySelector("input")
