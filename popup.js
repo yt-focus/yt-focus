@@ -83,7 +83,7 @@ const setState = (state) => {
         .dispatchEvent(new Event('input'));
   }
 
-  if(onSwitch) {
+  if(!onSwitch.checked) {
     document.getElementById("cover").style.display = "block"
   }
 }
