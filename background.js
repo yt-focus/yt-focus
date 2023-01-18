@@ -4,6 +4,11 @@ const getSliderStyles = ({state}, isWatching) => {
   img.yt-core-image {
     filter: blur(${blurAmount}px) grayscale(${state.greyscale}%)
   }
+
+  #logo-icon {
+    filter:grayscale(${state.onSwitch? 100 : 0 }%)
+  }
+
   `
 }
 
@@ -44,6 +49,7 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
             if (pathname === "") {
               applyFocusHome(tab);
             } else {
+              
               await chrome.scripting.removeCSS({
                 files: ["/scripts/styles/focus-home.css"],
                 target: { tabId: tab.id },
