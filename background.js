@@ -1,22 +1,41 @@
 const getSliderStyles = ({state}, isWatching) => {
   const blurAmount = isWatching? state.reqBlur : 0;
+  if(state.onSwitch)
+    return `
+    img.yt-core-image {
+      filter: blur(${blurAmount}px) grayscale(${state.greyscale}%)
+    }
+
+    #logo-icon {
+      filter:grayscale(${state.onSwitch? 100 : 0 }%)
+    }
+
+    #dismissible.ytd-video-renderer{
+      filter: grayscale(${state.greyscale}%)
+    }
+
+    body {
+      filter: brightness(${state.brightness / 100.0}) sepia(${state.sepia / 100.0})
+    }
+    `
   return `
   img.yt-core-image {
-    filter: blur(${blurAmount}px) grayscale(${state.greyscale}%)
+    filter: blur(0px) grayscale(0%)
   }
 
   #logo-icon {
-    filter:grayscale(${state.onSwitch? 100 : 0 }%)
+    filter:grayscale(0%)
   }
 
   #dismissible.ytd-video-renderer{
-    filter: grayscale(${state.greyscale}%)
+    filter: grayscale(0%)
   }
 
   body {
-    filter: brightness(${state.brightness / 100.0}) sepia(${state.sepia / 100.0})
+    filter: brightness(1) sepia(0)
   }
   `
+  
 }
 
 const applyFocusHome = (tab) => {
@@ -95,7 +114,7 @@ const focusOption = async (result) => {
     let pathname = url.pathname.split("/")[1];
 
     
-      if(pathname === "" && result.state.focusHome) {
+      if(pathname === "" && result.state.focusHome && result.state.onSwitch) {
         await chrome.scripting.insertCSS({
           files: ["/scripts/styles/focus-home.css"],
           target: { tabId: result.state.fromTab },
@@ -112,8 +131,6 @@ const focusOption = async (result) => {
 
 chrome.storage.onChanged.addListener( () => {
   chrome.storage.sync.get(["state"]).then(async (result) => {
-    console.log("browhats up!!!",result.state)
-
 
     sliderUpdate(result);
     focusOption(result);
