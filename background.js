@@ -24,6 +24,10 @@ const getStyles = ({state}, isWatching) => {
       display: ${state.isCommentsHidden? "none": "block"};
     }
 
+    #related {
+      display: ${state.isReqHidden? "none": "block"};
+    }
+
     `
   return `
   img.yt-core-image {
@@ -43,6 +47,9 @@ const getStyles = ({state}, isWatching) => {
   }
 
   .ytd-comments {
+    display: "block";
+  }
+  #related {
     display: "block";
   }
   `
@@ -112,7 +119,7 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
 
 //live menu changes
 
-const sliderUpdate = (result) => {
+const stylesUpdate = (result) => {
   chrome.tabs.query({active: true, currentWindow: true}, async function(tabs) {
     let tab = tabs[0];
 
@@ -125,7 +132,7 @@ const sliderUpdate = (result) => {
   });
 }
 
-const focusOption = async (result) => {
+const focusHomePageUpdate = async (result) => {
   chrome.tabs.query({active: true, currentWindow: true}, async function(tabs) {
     let tab = tabs[0];
     let url = new URL(tab.url);
@@ -159,8 +166,8 @@ const hideCommentOption = ({ state }) => {
 chrome.storage.onChanged.addListener( () => {
   chrome.storage.sync.get(["state"]).then(async (result) => {
 
-    sliderUpdate(result);
-    focusOption(result);
+    stylesUpdate(result);
+    focusHomePageUpdate(result);
 
   });
 })
