@@ -18,19 +18,15 @@ const applyFocusHome = (tab) => {
   });
 }
 
-const sliderControlsLoadIn = async (isOn, tab, result) => {
-  if(isOn) {
-    console.log("a simple simple", "img.yt-core-image {filter: blur("+result.state.reqBlur+"px)}");
-    await chrome.scripting.insertCSS({
-      css: "img.yt-core-image {filter: blur("+result.state.reqBlur+"px)}",
-      target: { tabId: tab.id },
-    });
-  } else {
-    await chrome.scripting.removeCSS({
-      css: "img.yt-core-image {filter: blur("+result.state.reqBlur+"px)}",
-      target: { tabId: tab.id },
-    });
-  }
+const sliderControlsLoadIn = async (isWatching, tab, result) => {
+  
+  const styles = getSliderStyles(result, isWatching)
+
+  await chrome.scripting.insertCSS({
+    css: styles,
+    target: { tabId: tab.id },
+  });
+
 }
 
 chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
