@@ -1,3 +1,5 @@
+import { getActiveTabURL } from "./utils.js";
+
 const DEFAULT = {
   onSwitch: true,
   reqBlur: 50,
@@ -23,24 +25,25 @@ isReqHidden,
 lowercase,
 clickBaitHidden;
 
-const getActiveTabURL = async () => {
-  const tabs = await chrome.tabs.query({
-      currentWindow: true,
-      active: true
-  });
-
-  return tabs[0];
-}
-
 const addMenuSaveActivity = () => {
 
   const elements = document.getElementsByClassName('menu-item');
   for (let i = 0; i < elements.length; i++) {
     if (i === 0)
       elements[i].addEventListener('change', () => saveState());
-    else
-      elements[i].shadowRoot.querySelector("input")
-      .addEventListener('change', saveState);
+    else {
+      const element = elements[i].shadowRoot;
+      element.querySelector("input")
+      .addEventListener('change', saveState)
+
+      const buttons = element.querySelectorAll("button");
+      if(buttons.length) {
+        buttons.forEach((button) => {
+          button.addEventListener('click', saveState)
+        })
+      }
+    }
+    
   }
 }
 
