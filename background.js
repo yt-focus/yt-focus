@@ -16,31 +16,38 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
 
     chrome.tabs.query({active: true, currentWindow: true}, async function(tabs) {
         let tab = tabs[0];
-
+        let url = new URL(tab.url);
+        let pathname = url.pathname.split("/")[1];
         if (tab.url.includes("youtube.com")) {
-
-          let url = new URL(tab.url);
-          let pathname = url.pathname.split("/")[1];
-          
-          if (pathname === "") {
-            applyFocusHome(tab);
-          } else {
-            await chrome.scripting.removeCSS({
-              files: ["/scripts/styles/focus-home.css"],
-              target: { tabId: tab.id },
-            });
-
-            if(pathname === "watch") {
-              
+          chrome.storage.sync.get(["state"]).then(async (result) => {
+            
+            
+            
+            if (pathname === "") {
+              applyFocusHome(tab);
             } else {
               await chrome.scripting.removeCSS({
-                css: "img.yt-core-image {}",
-                target: { tabId: result.state.fromTab },
+                files: ["/scripts/styles/focus-home.css"],
+                target: { tabId: tab.id },
               });
+  
+              if(pathname === "watch") {
+                console.log("a simple simple", "img.yt-core-image {filter: blur("+result.state.reqBlur+"px)}");
+                await chrome.scripting.insertCSS({
+                  css: "img.yt-core-image {filter: blur("+result.state.reqBlur+"px)}",
+                  target: { tabId: tab.id },
+                });
+              } else {
+                await chrome.scripting.removeCSS({
+                  css: "img.yt-core-image {filter: blur("+result.state.reqBlur+"px)}",
+                  target: { tabId: tab.id },
+                });
+              }
+
+  
             }
-
-
-          }
+        
+          });
         }
     });
   }
