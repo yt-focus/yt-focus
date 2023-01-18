@@ -1,3 +1,12 @@
+const getSliderStyles = ({state}, isWatching) => {
+  const blurAmount = isWatching? state.reqBlur : 0;
+  return `
+  img.yt-core-image {
+    filter: blur(${blurAmount}px) grayscale(${state.greyscale}%)
+  }
+  `
+}
+
 const applyFocusHome = (tab) => {
   chrome.storage.sync.get(["state"]).then(async (result) => {
     if(result.state.focusHome) {
@@ -7,6 +16,21 @@ const applyFocusHome = (tab) => {
       });
     }
   });
+}
+
+const sliderControlsLoadIn = async (isOn, tab, result) => {
+  if(isOn) {
+    console.log("a simple simple", "img.yt-core-image {filter: blur("+result.state.reqBlur+"px)}");
+    await chrome.scripting.insertCSS({
+      css: "img.yt-core-image {filter: blur("+result.state.reqBlur+"px)}",
+      target: { tabId: tab.id },
+    });
+  } else {
+    await chrome.scripting.removeCSS({
+      css: "img.yt-core-image {filter: blur("+result.state.reqBlur+"px)}",
+      target: { tabId: tab.id },
+    });
+  }
 }
 
 chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
@@ -21,8 +45,6 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
         if (tab.url.includes("youtube.com")) {
           chrome.storage.sync.get(["state"]).then(async (result) => {
             
-            
-            
             if (pathname === "") {
               applyFocusHome(tab);
             } else {
@@ -31,18 +53,7 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
                 target: { tabId: tab.id },
               });
   
-              if(pathname === "watch") {
-                console.log("a simple simple", "img.yt-core-image {filter: blur("+result.state.reqBlur+"px)}");
-                await chrome.scripting.insertCSS({
-                  css: "img.yt-core-image {filter: blur("+result.state.reqBlur+"px)}",
-                  target: { tabId: tab.id },
-                });
-              } else {
-                await chrome.scripting.removeCSS({
-                  css: "img.yt-core-image {filter: blur("+result.state.reqBlur+"px)}",
-                  target: { tabId: tab.id },
-                });
-              }
+              sliderControlsLoadIn(pathname === "watch", tab, result)
 
   
             }
@@ -55,20 +66,17 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
 
 //live menu changes
 
-const recommendationBlurOption = (result) => {
+const sliderUpdate = (result) => {
   chrome.tabs.query({active: true, currentWindow: true}, async function(tabs) {
     let tab = tabs[0];
 
-    if (tab.url.includes("youtube.com/watch")) {
       console.log("Im reaching here for the love of glob")
+      const styles = getSliderStyles(result, tab.url.includes("youtube.com/watch"));
       await chrome.scripting.insertCSS({
-        css: "img.yt-core-image {filter: blur("+result.state.reqBlur+"px)}",
+        css: styles,
         target: { tabId: result.state.fromTab },
       });
-    }
-});
-  
-  
+  });
 }
 
 const focusOption = async (result) => {
@@ -98,8 +106,7 @@ chrome.storage.onChanged.addListener( () => {
     console.log("browhats up!!!",result.state)
 
 
-    console.log("ummm????")
-    recommendationBlurOption(result);
+    sliderUpdate(result);
     focusOption(result);
 
   });
