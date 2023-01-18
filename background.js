@@ -4,8 +4,8 @@ const getStyles = ({state}, isWatching) => {
   const blurAmount = isWatching? state.reqBlur : 0;
   if(state.onSwitch)
     return `
-    img.yt-core-image {
-      filter: blur(${blurAmount}px) grayscale(${state.greyscale}%)
+    img.yt-core-image, .ytp-videowall-still-image {
+      filter: blur(${blurAmount}px) grayscale(${state.greyscale}%) ;
     }
 
     #logo-icon {
@@ -24,7 +24,7 @@ const getStyles = ({state}, isWatching) => {
       display: ${state.isCommentsHidden? "none": "block"};
     }
 
-    #related {
+    #related, .ytp-endscreen-next, .ytp-endscreen-previous, .videowall-endscreen {
       display: ${state.isReqHidden? "none": "block"};
     }
 
