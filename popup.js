@@ -47,20 +47,6 @@ const addMenuSaveActivity = () => {
   }
 }
 
-async function focusToggle () {
-  const activeTab = await getActiveTabURL();
-  console.log("im being called",activeTab.id);
-  
-  chrome.tabs.sendMessage(activeTab.id, {
-    action: "FOCUS",
-    options: {
-      element: this,
-      checked: this.checked,
-      tabId: activeTab.id,
-    }
-  });
-}
-
 const addListeners = () => {
   const lightSwitch = document.getElementById("on-off");
 
@@ -73,10 +59,6 @@ const addListeners = () => {
   })
 
   addMenuSaveActivity();
-
-  focusHome.addEventListener('change', focusToggle);
-
-
 
 }
 

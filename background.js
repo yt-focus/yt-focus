@@ -1,4 +1,6 @@
-const getSliderStyles = ({state}, isWatching) => {
+let isInjected = false;
+
+const getStyles = ({state}, isWatching) => {
   const blurAmount = isWatching? state.reqBlur : 0;
   if(state.onSwitch)
     return `
@@ -17,6 +19,11 @@ const getSliderStyles = ({state}, isWatching) => {
     body {
       filter: brightness(${state.brightness / 100.0}) sepia(${state.sepia / 100.0})
     }
+
+    .ytd-comments {
+      display: ${state.isCommentsHidden? "none": "block"};
+    }
+
     `
   return `
   img.yt-core-image {
@@ -33,6 +40,10 @@ const getSliderStyles = ({state}, isWatching) => {
 
   body {
     filter: brightness(1) sepia(0)
+  }
+
+  .ytd-comments {
+    display: "block";
   }
   `
   
@@ -51,7 +62,7 @@ const applyFocusHome = (tab) => {
 
 const sliderControlsLoadIn = async (isWatching, tab, result) => {
   
-  const styles = getSliderStyles(result, isWatching)
+  const styles = getStyles(result, isWatching)
 
   await chrome.scripting.insertCSS({
     css: styles,
@@ -71,6 +82,13 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
         let pathname = url.pathname.split("/")[1];
 
         if (tab.url.includes("youtube.com")) {
+          if (!isInjected) {
+            isInjected = true;
+            await chrome.scripting.insertCSS({
+              css: ".hidden {display: none;}",
+              target: { tabId: tab.id },
+            });
+          }
           chrome.storage.sync.get(["state"]).then(async (result) => {
             
             if (pathname === "") {
@@ -99,7 +117,7 @@ const sliderUpdate = (result) => {
     let tab = tabs[0];
 
       console.log("Im reaching here for the love of glob")
-      const styles = getSliderStyles(result, tab.url.includes("youtube.com/watch"));
+      const styles = getStyles(result, tab.url.includes("youtube.com/watch"));
       await chrome.scripting.insertCSS({
         css: styles,
         target: { tabId: result.state.fromTab },
@@ -126,6 +144,15 @@ const focusOption = async (result) => {
         });
       }
   })
+}
+
+const hideCommentOption = ({ state }) => {
+  const commentSection =  document.getElementsByClassName('ytd-comments');
+  if(state.isCommentsHidden) {
+   commentSection.classList.add("hidden");
+  } else {
+    commentSection.classList.remove("hidden")
+  }
 }
 
 
