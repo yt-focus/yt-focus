@@ -16,6 +16,8 @@ template.innerHTML = `
             background: black;
             border: none;  
             cursor: pointer;
+            z-index: 1;
+            transition: filter 150ms ;
         }
 
         .arrow img {
@@ -26,7 +28,8 @@ template.innerHTML = `
 
         .arrow:hover {
             filter: invert(100%);
-            z-index: 1;
+            z-index: 2;
+            transform: scale(1.1);
         }
 
         .container{
@@ -93,17 +96,13 @@ template.innerHTML = `
             width: 173px;
             height: 28px;
             background: transparent;
-        
-            -webkit-transition: .2s;
-            transition: opacity .2s;
+            
             cursor: pointer;
-            z-index: 1
+            z-index: 1;
+            transition: 75ms;
         }
         
-        .slider:hover {
-            outline: 2px solid var(--secondary);
-            border-radius: 2px;
-        }
+        
         
         .slider::-webkit-slider-thumb {
         -webkit-appearance: none;
@@ -113,8 +112,18 @@ template.innerHTML = `
         }
 
         .fill-container {
-        position: relative;
+            position: relative;
+            outline: 1px solid var(--black);
+            transition: 75ms;
         }
+
+        .fill-container:hover {
+            border-radius: 2px;
+            outline: 2px solid var(--secondary);
+            border-radius: 2px;
+            z-index: 2;
+        }
+
         
         .bar {
             position: absolute;
@@ -125,9 +134,8 @@ template.innerHTML = `
             height: 100%;
             overflow: hidden;
             pointer-events: none;
-            
 
-            outline: 1px solid var(--black);
+            transition: 75ms;
         }
 
         

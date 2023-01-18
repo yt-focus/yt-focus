@@ -9,6 +9,13 @@ const getSliderStyles = ({state}, isWatching) => {
     filter:grayscale(${state.onSwitch? 100 : 0 }%)
   }
 
+  #dismissible.ytd-video-renderer{
+    filter: grayscale(${state.greyscale}%)
+  }
+
+  body {
+    filter: brightness(${state.brightness / 100.0}) sepia(${state.sepia / 100.0})
+  }
   `
 }
 
@@ -43,13 +50,14 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
         let tab = tabs[0];
         let url = new URL(tab.url);
         let pathname = url.pathname.split("/")[1];
+
         if (tab.url.includes("youtube.com")) {
           chrome.storage.sync.get(["state"]).then(async (result) => {
             
             if (pathname === "") {
               applyFocusHome(tab);
             } else {
-              
+
               await chrome.scripting.removeCSS({
                 files: ["/scripts/styles/focus-home.css"],
                 target: { tabId: tab.id },
@@ -57,7 +65,6 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
   
               sliderControlsLoadIn(pathname === "watch", tab, result)
 
-  
             }
         
           });

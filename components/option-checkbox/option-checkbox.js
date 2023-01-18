@@ -35,6 +35,7 @@ template.innerHTML = `
             outline: 2px solid var(--secondary);
             border-radius: 1px;
             cursor: pointer;
+            transition: background-color 250ms;
         }
 
         input[type="checkbox"]:hover {
