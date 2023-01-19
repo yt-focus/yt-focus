@@ -46,6 +46,10 @@ template.innerHTML = `
             background-color: var(--light-text);
             outline: 1px solid var(--light-text);
         }
+        input[type="checkbox"]:checked:hover{
+            background-color: var(--medium-text);
+            outline: 1px solid var(--medium-text);
+        }
 
         
 
