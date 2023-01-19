@@ -1,4 +1,4 @@
-let isInjected = false;
+let lastPath;
 
 const getStyles = ({state}, isWatching) => {
   const blurAmount = isWatching? state.reqBlur : 0;
@@ -28,6 +28,9 @@ const getStyles = ({state}, isWatching) => {
       display: ${state.isReqHidden? "none": "block"};
     }
 
+    #video-title, #above-the-fold .ytd-watch-metadata {
+      text-transform: ${state.lowercase? "lowercase" : "none"} 
+    }
     `
   return `
   img.yt-core-image {
@@ -47,19 +50,48 @@ const getStyles = ({state}, isWatching) => {
   }
 
   .ytd-comments {
-    display: "block";
+    display: block
   }
-  #related {
-    display: "block";
+
+  #related, .ytp-endscreen-next, .ytp-endscreen-previous, .videowall-endscreen {
+    display: block
+  }
+
+  #video-title, #above-the-fold .ytd-watch-metadata {
+    text-transform: none
   }
   `
   
 }
 
-const applyFocusHome = (tab) => {
+const applyFocusHome = (tab, pathname) => {
+
   chrome.storage.sync.get(["state"]).then(async (result) => {
-    if(result.state.focusHome) {
+
+    if(result.state.focusHome && pathname === "") {
+      console.log("inserting")
       await chrome.scripting.insertCSS({
+        files: ["/scripts/styles/focus-home.css"],
+        target: { tabId: tab.id },
+      }, () => {
+        chrome.tabs.query({active: true, currentWindow: true}, async function(tabs) {
+          let tab = tabs[0];
+          let url = new URL(tab.url);
+          let pathname = url.pathname.split("/")[1];
+
+          if (pathname !== "") {
+            await chrome.scripting.removeCSS({
+              files: ["/scripts/styles/focus-home.css"],
+              target: { tabId: tab.id },
+            });
+          }
+        });
+      })
+
+    } else {
+      console.log("removing")
+      sliderControlsLoadIn(pathname === "watch", tab, result)
+      await chrome.scripting.removeCSS({
         files: ["/scripts/styles/focus-home.css"],
         target: { tabId: tab.id },
       });
@@ -80,40 +112,18 @@ const sliderControlsLoadIn = async (isWatching, tab, result) => {
 
 chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
 
-  console.log("im the id", tabId)
   if (changeInfo.status === "complete") {
 
-    chrome.tabs.query({active: true, currentWindow: true}, async function(tabs) {
-        let tab = tabs[0];
-        let url = new URL(tab.url);
-        let pathname = url.pathname.split("/")[1];
+    let url = new URL(tab.url);
+    let pathname = url.pathname.split("/")[1];
 
-        if (tab.url.includes("youtube.com")) {
-          if (!isInjected) {
-            isInjected = true;
-            await chrome.scripting.insertCSS({
-              css: ".hidden {display: none;}",
-              target: { tabId: tab.id },
-            });
-          }
-          chrome.storage.sync.get(["state"]).then(async (result) => {
-            
-            if (pathname === "") {
-              applyFocusHome(tab);
-            } else {
-
-              await chrome.scripting.removeCSS({
-                files: ["/scripts/styles/focus-home.css"],
-                target: { tabId: tab.id },
-              });
-  
-              sliderControlsLoadIn(pathname === "watch", tab, result)
-
-            }
+    if (tab.url.includes("youtube.com")) {
         
-          });
-        }
-    });
+      console.log("pathname",pathname,"tab", tab)
+      applyFocusHome(tab, pathname);
+
+    }
+
   }
 });
 
@@ -123,7 +133,6 @@ const stylesUpdate = (result) => {
   chrome.tabs.query({active: true, currentWindow: true}, async function(tabs) {
     let tab = tabs[0];
 
-      console.log("Im reaching here for the love of glob")
       const styles = getStyles(result, tab.url.includes("youtube.com/watch"));
       await chrome.scripting.insertCSS({
         css: styles,

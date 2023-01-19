@@ -10,7 +10,6 @@ const DEFAULT = {
   isCommentsHidden: false,
   isReqHidden: false,
   lowercase: true,
-  clickBaitHidden: true,
 } 
 
 let 
@@ -22,8 +21,7 @@ sepia,
 focusHome,
 isCommentsHidden,
 isReqHidden,
-lowercase,
-clickBaitHidden;
+lowercase
 
 const addMenuSaveActivity = () => {
 
@@ -73,7 +71,6 @@ const setState = (state) => {
   isCommentsHidden.checked = state.isCommentsHidden;
   isReqHidden.checked = state.isReqHidden;
   lowercase.checked = state.lowercase;
-  clickBaitHidden.checked = state.clickBaitHidden;
 
   const elements = document.querySelectorAll('option-slider');
   for (let i = 0; i < elements.length; i++) {
@@ -100,7 +97,6 @@ const saveState = async () => {
     isCommentsHidden: isCommentsHidden.checked,
     isReqHidden: isReqHidden.checked,
     lowercase: lowercase.checked,
-    clickBaitHidden: clickBaitHidden.checked,
     fromTab: activeTab.id, 
   }
 
@@ -138,8 +134,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   isReqHidden = document.querySelector('option-checkbox[id="hide-reqs"]')
     .shadowRoot.querySelector("input");
   lowercase = document.querySelector('option-checkbox[id="lowercase"]')
-    .shadowRoot.querySelector("input");
-  clickBaitHidden = document.querySelector('option-checkbox[id="click-bait"]')
     .shadowRoot.querySelector("input");
 
   

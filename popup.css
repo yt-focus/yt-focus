@@ -30,6 +30,7 @@ body {
   align-items: baseline;
   gap: 5px;
   width: 90%;
+  margin-top: 8px;
 }
 
 .container {
@@ -45,7 +46,7 @@ body {
   padding-bottom: 16px;
 
   width: 258px;
-  height: 530px;
+  height: 516px;
 }
 
 #cover {
@@ -141,6 +142,7 @@ img {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-top: 10px;
 
   align-items: center;
 }
