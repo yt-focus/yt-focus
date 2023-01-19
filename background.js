@@ -69,7 +69,7 @@ const applyFocusHome = (tab, pathname) => {
   chrome.storage.sync.get(["state"]).then(async (result) => {
 
     if(result.state.focusHome && pathname === "") {
-      console.log("inserting")
+
       await chrome.scripting.insertCSS({
         files: ["/scripts/styles/focus-home.css"],
         target: { tabId: tab.id },
@@ -89,7 +89,7 @@ const applyFocusHome = (tab, pathname) => {
       })
 
     } else {
-      console.log("removing")
+
       sliderControlsLoadIn(pathname === "watch", tab, result)
       await chrome.scripting.removeCSS({
         files: ["/scripts/styles/focus-home.css"],
@@ -118,8 +118,7 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
     let pathname = url.pathname.split("/")[1];
 
     if (tab.url.includes("youtube.com")) {
-        
-      console.log("pathname",pathname,"tab", tab)
+  
       applyFocusHome(tab, pathname);
 
     }
@@ -173,11 +172,17 @@ const hideCommentOption = ({ state }) => {
 
 
 chrome.storage.onChanged.addListener( () => {
-  chrome.storage.sync.get(["state"]).then(async (result) => {
+  chrome.tabs.query({active: true, currentWindow: true}, async function(tabs) {
+    let tab = tabs[0];
+    let { origin } = new URL(tab.url);
+    if (origin.includes("youtube.com")) {
+      chrome.storage.sync.get(["state"]).then(async (result) => {
 
-    stylesUpdate(result);
-    focusHomePageUpdate(result);
+          stylesUpdate(result);
+          focusHomePageUpdate(result);
 
+      });
+    }
   });
 })
 
