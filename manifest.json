@@ -7,6 +7,11 @@
   "background": {
     "service_worker": "background.js"
   },
+  "icons": { 
+    "16": "assets/ui-icon-16.png",
+    "48": "assets/ui-icon-48.png",
+    "128": "assets/ui-icon.png"
+    },
   "content_scripts": [
     {
       "matches": ["https://*.youtube.com/*"],
@@ -27,9 +32,11 @@
   ],
   "action": {
     "default_icon": {
-      "16": "assets/ui-icon.png",
-      "24": "assets/ui-icon.png",
-      "32": "assets/ui-icon.png"
+      "16": "assets/ui-icon-16.png",
+      "24": "assets/ui-icon-24.png",
+      "32": "assets/ui-icon-32.png",
+      "48": "assets/ui-icon-48.png",
+      "128": "assets/ui-icon.png"
     },
     "default_title": "YT Focus",
     "default_popup": "popup.html"
