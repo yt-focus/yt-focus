@@ -31,6 +31,10 @@ const getStyles = ({state}, isWatching) => {
     #video-title, #above-the-fold .ytd-watch-metadata {
       text-transform: ${state.lowercase? "lowercase" : "none"} 
     }
+
+    #page-manager.ytd-app {
+      overflow: hidden;
+    }
     `
   return `
   img.yt-core-image, .ytp-videowall-still-image, .ytp-cued-thumbnail-overlay {
@@ -69,7 +73,7 @@ const applyFocusHome = (tab, pathname) => {
   chrome.storage.sync.get(["state"]).then(async (result) => {
 
     
-    if(result.state.focusHome && result.state.onSwitch && pathname === "") {
+    if(result.state?.focusHome && result.state.onSwitch && pathname === "") {
 
       await chrome.scripting.insertCSS({
         files: ["/scripts/styles/focus-home.css"],
