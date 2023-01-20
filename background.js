@@ -188,13 +188,12 @@ chrome.storage.onChanged.addListener( () => {
 
 
 
-// chrome.runtime.onInstalled.addListener((reason) => {
-//   if (reason === chrome.runtime.onInstalledReason.INSTALL) {
-//     chrome.tabs.create({
-//       url: "https://www.youtube.com/"
-//     });
-//   }
-
+chrome.runtime.onInstalled.addListener((reason) => {
+    chrome.tabs.create({
+      url: "https://yt-focus.org/help"
+    });
+  
+});
   
   
 
