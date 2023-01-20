@@ -155,6 +155,10 @@ p {
   user-select: none;
 }
 
+.privacy {
+  text-decoration: underline;
+}
+
 .switch {
   position: relative;
   display: inline-block;
