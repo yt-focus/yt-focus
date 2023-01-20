@@ -16,8 +16,8 @@ const getStyles = ({state}, isWatching) => {
       filter: grayscale(${state.greyscale}%)
     }
 
-    body {
-      filter: brightness(${state.brightness / 100.0}) sepia(${state.sepia / 100.0})
+    #page-manager {
+      filter: brightness(${state.brightness / 100.0}) sepia(${state.sepia / 100.0});
     }
 
     .ytd-comments {
@@ -33,7 +33,7 @@ const getStyles = ({state}, isWatching) => {
     }
     `
   return `
-  img.yt-core-image {
+  img.yt-core-image, .ytp-videowall-still-image {
     filter: blur(0px) grayscale(0%)
   }
 
@@ -45,8 +45,8 @@ const getStyles = ({state}, isWatching) => {
     filter: grayscale(0%)
   }
 
-  body {
-    filter: brightness(1) sepia(0)
+  #page-manager {
+    filter: brightness(1) sepia(0);
   }
 
   .ytd-comments {
@@ -54,11 +54,11 @@ const getStyles = ({state}, isWatching) => {
   }
 
   #related, .ytp-endscreen-next, .ytp-endscreen-previous, .videowall-endscreen {
-    display: block
+    display: block;
   }
 
   #video-title, #above-the-fold .ytd-watch-metadata {
-    text-transform: none
+    text-transform: none;
   }
   `
   
