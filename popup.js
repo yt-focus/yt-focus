@@ -1,7 +1,7 @@
 import { getActiveTabURL } from "./utils.js";
 
 const DEFAULT = {
-  onSwitch: true,
+  onSwitch: false,
   reqBlur: 50,
   greyscale: 100,
   brightness: 100, //0 - 200 | 100 = 0

@@ -4,7 +4,7 @@ const getStyles = ({state}, isWatching) => {
   const blurAmount = isWatching? state.reqBlur : 0;
   if(state.onSwitch)
     return `
-    img.yt-core-image, .ytp-videowall-still-image {
+    img.yt-core-image, .ytp-videowall-still-image, .ytp-cued-thumbnail-overlay {
       filter: blur(${blurAmount}px) grayscale(${state.greyscale}%) ;
     }
 
@@ -16,7 +16,7 @@ const getStyles = ({state}, isWatching) => {
       filter: grayscale(${state.greyscale}%)
     }
 
-    #page-manager {
+    .video-stream.html5-main-video {
       filter: brightness(${state.brightness / 100.0}) sepia(${state.sepia / 100.0});
     }
 
@@ -33,7 +33,7 @@ const getStyles = ({state}, isWatching) => {
     }
     `
   return `
-  img.yt-core-image, .ytp-videowall-still-image {
+  img.yt-core-image, .ytp-videowall-still-image, .ytp-cued-thumbnail-overlay {
     filter: blur(0px) grayscale(0%)
   }
 
@@ -45,7 +45,7 @@ const getStyles = ({state}, isWatching) => {
     filter: grayscale(0%)
   }
 
-  #page-manager {
+  .video-stream.html5-main-video {
     filter: brightness(1) sepia(0);
   }
 
@@ -68,7 +68,8 @@ const applyFocusHome = (tab, pathname) => {
 
   chrome.storage.sync.get(["state"]).then(async (result) => {
 
-    if(result.state.focusHome && pathname === "") {
+    
+    if(result.state.focusHome && result.state.onSwitch && pathname === "") {
 
       await chrome.scripting.insertCSS({
         files: ["/scripts/styles/focus-home.css"],
@@ -187,11 +188,14 @@ chrome.storage.onChanged.addListener( () => {
 })
 
 
+chrome.runtime.onInstalled.addListener((details) => {
 
-chrome.runtime.onInstalled.addListener((reason) => {
+  if(details.reason == "install") {
+
     chrome.tabs.create({
-      url: "https://yt-focus.org/help"
+      url: "https://www.youtube.com/"
     });
+  }
   
 });
   
