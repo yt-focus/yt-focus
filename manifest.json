@@ -1,7 +1,7 @@
 {
   "name": "YT Focus",
   "version": "0.1.0",
-  "description": "YT without the distractions",
+  "description": "YouTube without all the distractions",
   "permissions": ["tabs", "activeTab", "storage", "scripting"],
   "host_permissions": ["https://*.youtube.com/*"],
   "background": {
