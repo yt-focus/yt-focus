@@ -24,7 +24,7 @@ What inspired the creation of this project was during my winter break where I wa
 So I spent tha last week of my break learning how to create a chorme extension and grinded all the way through until I finished. I wanted to be done before school started, so I wouldn't have to think about it anymore, and so that I could use it.
 
 ## How to Run 
-- Clone or download this project
+- Clone or download and unzip this project
 - Go to the puzzle piece at the top of your chrome browser <img width="22" alt="image" src="https://user-images.githubusercontent.com/74576449/213809619-2dc469fb-4a67-45b9-afd0-8de747763b99.png">
 then click `manage extensions`. 
 - From that page go to the top right and enable `developer mode` then click `load unpacked`
