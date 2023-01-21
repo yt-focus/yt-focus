@@ -44,7 +44,7 @@ So I spent tha last week of my break learning how to create a chorme extension a
 #### Here is the link to access the orginal figma files that were used to create this:
 
 https://www.figma.com/file/eOkqXPaJOeN9cLC9SoLUUJ/YT-Focus?node-id=107%3A10&t=xtgtgf7jzVXLMOGl-1 
-
+## 🔗 [Demo Video](https://youtu.be/TTm6PwH7StU)
 ## Screenshots
 ![jomba (1)](https://user-images.githubusercontent.com/74576449/213811114-15bdc822-fa29-4fb4-808f-8c5da2a24fbf.png)
 ![joomba (1)](https://user-images.githubusercontent.com/74576449/213811132-3d7eac95-876d-42b6-a4e2-4cbffc11d790.png)
@@ -54,7 +54,8 @@ https://www.figma.com/file/eOkqXPaJOeN9cLC9SoLUUJ/YT-Focus?node-id=107%3A10&t=xt
 This project also has a website [React.js]
 - Link: https://yt-focus.org/ 
 - Repo: https://github.com/yt-focus/yt-focus-website (poorly maintained at the moment)
-<img width="1280" alt="image" src="https://user-images.githubusercontent.com/74576449/213829186-f146f6ae-35ca-474c-b236-fcd319a9f698.png">
+
+[<img width="1280" alt="image" src="https://user-images.githubusercontent.com/74576449/213829186-f146f6ae-35ca-474c-b236-fcd319a9f698.png">](https://yt-focus.org/)
 
 
 ## Contributing
@@ -69,8 +70,6 @@ Before contributing there's some things you might wanna know. The basic structur
 - styles are applied with `chrome.scripting.insertCSS` throughout `background.js`. You can see the main code for that at the top of `background.js` under the function `getStyles()`.
 - there are two listeners in `background.js`, one for storage change and one for when the page changes (url).
 A lot of refactoring can be done. This was my first chrome extension and I'm open to learn from others. 
-## [Demo Video](https://youtu.be/TTm6PwH7StU)
-[![showcase](https://user-images.githubusercontent.com/74576449/213813113-4e1ef256-1f7e-4c8b-8213-dc9ee903ad58.png)](https://www.youtube.com/watch?v=TTm6PwH7StU)
 
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
