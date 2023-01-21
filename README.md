@@ -62,7 +62,7 @@ Before contributing there's some things you might wanna know. The basic structur
 - there are two listeners in `background.js`, one for storage change and one for when the page changes (url).
 A lot of refactoring can be done. This was my first chrome extension and I'm open to learn from others. 
 ## [Demo Video](https://youtu.be/TTm6PwH7StU)
-![showcase](https://user-images.githubusercontent.com/74576449/213813113-4e1ef256-1f7e-4c8b-8213-dc9ee903ad58.png)
+[![showcase](https://user-images.githubusercontent.com/74576449/213813113-4e1ef256-1f7e-4c8b-8213-dc9ee903ad58.png)](https://www.youtube.com/watch?v=TTm6PwH7StU)
 
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
