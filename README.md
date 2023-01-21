@@ -44,6 +44,8 @@ https://www.figma.com/file/eOkqXPaJOeN9cLC9SoLUUJ/YT-Focus?node-id=107%3A10&t=xt
 This project also has a website [React.js]
 - Link: https://yt-focus.org/ 
 - Repo: https://github.com/yt-focus/yt-focus-website (poorly maintained at the moment)
+<img width="1280" alt="image" src="https://user-images.githubusercontent.com/74576449/213829186-f146f6ae-35ca-474c-b236-fcd319a9f698.png">
+
 
 ## Contributing
 Before contributing there's some things you might wanna know. The basic structure:
