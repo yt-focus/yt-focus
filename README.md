@@ -29,7 +29,12 @@ then click `manage extensions`.
 - Then select the `unzipped folder` (root folder) of the project and you should be good to go!
 - `Don't forget` to click back on that puzzle piece <img width="22" alt="image" src="https://user-images.githubusercontent.com/74576449/213809619-2dc469fb-4a67-45b9-afd0-8de747763b99.png"> and pin it <img width="18" alt="image" src="https://user-images.githubusercontent.com/74576449/213835582-d0257d0d-4062-41ed-9e30-a2c17f17b06c.png">
  !
-
+## 🔒 Privacy
+#### Personal Data:
+- YT-Focus respects the privacy of its users and is committed to protecting their personal information. We do not collect or retain any personal data, browsing history or other identifying information.
+#### Third Party Services:
+- YT-Focus uses Chrome (Chromium) or WebExtensions Storage Sync API to store user settings, and browser's Web Storage API (localStorage) to store Developer Tools fixes.
+- Donations to YT-Focus are processed by Open Collective and their chosen payment processors, Stripe and PayPal.
 ## About The Project
 What inspired the creation of this project was during my winter break where I was trying to get some extra studying in. When I went to YouTube I made it a habit to not look at my recommendation feed, and I would sometimes put my hand over it. I did this because I knew I would get distracted, and I would. Even with that habit, sometimes I'm tying, and then boom, out of the corner of my eye something so wild and absurd catches my interest, or I try my hardest to stay focused typing I forget what I was typing.
 
