@@ -18,6 +18,8 @@
 
 
 <!-- ABOUT THE PROJECT -->
+## Releases
+- ### Chrome: [(pre-release) v1.0.0-beta](https://github.com/yt-focus/yt-focus/releases/tag/v1.0.0-beta)
 ## About The Project
 What inspired the creation of this project was during my winter break where I was trying to get some extra studying in. When I went to YouTube I made it a habit to not look at my recommendation feed, and I would sometimes put my hand over it. I did this because I knew I would get distracted, and I would. Even with that habit, sometimes I'm tying, and then boom, out of the corner of my eye something so wild and absurd catches my interest, or I try my hardest to stay focused typing I forget what I was typing.
 
