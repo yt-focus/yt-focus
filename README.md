@@ -22,8 +22,8 @@
 - ### Chrome: [(pre-release) v1.0.0-beta](https://github.com/yt-focus/yt-focus/releases/tag/v1.0.0-beta)
 
 ## 💿 How to Run 
-- Clone or download and unzip this project
-- Go to the puzzle piece at the top of your chrome browser <img width="22" alt="image" src="https://user-images.githubusercontent.com/74576449/213809619-2dc469fb-4a67-45b9-afd0-8de747763b99.png">
+- `Clone or download` and `unzip` this project
+- Go to the `puzzle piece` at the top of your chrome browser <img width="22" alt="image" src="https://user-images.githubusercontent.com/74576449/213809619-2dc469fb-4a67-45b9-afd0-8de747763b99.png">
 then click `manage extensions`. 
 - From that page go to the top right and enable `developer mode` then click `load unpacked` at the top left.
 - Then select the `unzipped folder` (root folder) of the project and you should be good to go!
