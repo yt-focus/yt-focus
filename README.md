@@ -1,4 +1,4 @@
-[![License][license-shield]][license-url]
+[![License][license-shield]](https://github.com/yt-focus/yt-focus/blob/main/LICENSE)
 
 
 
