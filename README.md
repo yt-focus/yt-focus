@@ -18,19 +18,22 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## Releases
+## 📝 Releases
 - ### Chrome: [(pre-release) v1.0.0-beta](https://github.com/yt-focus/yt-focus/releases/tag/v1.0.0-beta)
+
+## 💿 How to Run 
+- Clone or download and unzip this project
+- Go to the puzzle piece at the top of your chrome browser <img width="22" alt="image" src="https://user-images.githubusercontent.com/74576449/213809619-2dc469fb-4a67-45b9-afd0-8de747763b99.png">
+then click `manage extensions`. 
+- From that page go to the top right and enable `developer mode` then click `load unpacked` at the top left.
+- Then select the `unzipped folder` (root folder) of the project and you should be good to go!
+- `Don't forget` to click back on that puzzle piece <img width="22" alt="image" src="https://user-images.githubusercontent.com/74576449/213809619-2dc469fb-4a67-45b9-afd0-8de747763b99.png"> and pin it <img width="18" alt="image" src="https://user-images.githubusercontent.com/74576449/213835582-d0257d0d-4062-41ed-9e30-a2c17f17b06c.png">
+ !
+
 ## About The Project
 What inspired the creation of this project was during my winter break where I was trying to get some extra studying in. When I went to YouTube I made it a habit to not look at my recommendation feed, and I would sometimes put my hand over it. I did this because I knew I would get distracted, and I would. Even with that habit, sometimes I'm tying, and then boom, out of the corner of my eye something so wild and absurd catches my interest, or I try my hardest to stay focused typing I forget what I was typing.
 
 So I spent tha last week of my break learning how to create a chorme extension and grinded all the way through until I finished. I wanted to be done before school started, so I wouldn't have to think about it anymore, and so that I could use it.
-
-## How to Run 
-- Clone or download and unzip this project
-- Go to the puzzle piece at the top of your chrome browser <img width="22" alt="image" src="https://user-images.githubusercontent.com/74576449/213809619-2dc469fb-4a67-45b9-afd0-8de747763b99.png">
-then click `manage extensions`. 
-- From that page go to the top right and enable `developer mode` then click `load unpacked`
-- Then select the root folder of the project and you should be good to go!
 
 ## Designed on Figma
 #### Here is the link to access the orginal figma files that were used to create this:
