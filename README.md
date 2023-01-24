@@ -51,9 +51,9 @@ https://www.figma.com/file/eOkqXPaJOeN9cLC9SoLUUJ/YT-Focus?node-id=107%3A10&t=xt
 ![hhhh (1)](https://user-images.githubusercontent.com/74576449/213811206-8fdc6b1e-fc23-4a65-972b-ea56ad282823.png)
 
 ## Companion Website
-This project also has a website [React.js]
+This project also has a website (React.js)
 - Link: https://yt-focus.org/ 
-- Repo: https://github.com/yt-focus/yt-focus-website (poorly maintained at the moment)
+- Repo: https://github.com/yt-focus/yt-focus-website (issues open)
 
 [<img width="1280" alt="image" src="https://user-images.githubusercontent.com/74576449/213829186-f146f6ae-35ca-474c-b236-fcd319a9f698.png">](https://yt-focus.org/)
 
