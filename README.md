@@ -19,8 +19,9 @@
 
 <!-- ABOUT THE PROJECT -->
 ## 📝 Releases
+### ❤️     If you enjoy what we do, please don't forget to leave a review!!!
 - ## 🔗 [Download on the Chrome Web Store: v1.0.0](https://chrome.google.com/webstore/detail/yt-focus/fdekaebckbnpgafknooinjcnelmlhiip?hl=en&authuser=1) 🚀
-- ### Chrome Dev: [(pre-release) v1.0.0-beta](https://github.com/yt-focus/yt-focus/releases/tag/v1.0.0-beta)
+- #### Chrome Dev: [(pre-release) v1.0.0-beta](https://github.com/yt-focus/yt-focus/releases/tag/v1.0.0-beta)
 
 ## 💿 How to Run 
 - `Clone or download` and `unzip` this project
