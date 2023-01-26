@@ -28,12 +28,19 @@ const getStyles = ({state}, isWatching) => {
       display: ${state.isReqHidden? "none": "block"};
     }
 
+    a#endpoint[title='Shorts'],
+    .ytd-rich-section-renderer[is-shorts],
+    .ytd-reel-shelf-renderer,
+    #dismissible:has(span[aria-label="Shorts"]) {
+      display: ${state.isShortsHidden? "none !important" : "flex !important"};
+    }
+
     #video-title, #above-the-fold .ytd-watch-metadata {
       text-transform: ${state.lowercase? "lowercase" : "none"} 
     }
 
     #page-manager.ytd-app {
-      overflow: hidden;
+      overflow: hidden !important;
     }
     `
   return `
@@ -59,6 +66,13 @@ const getStyles = ({state}, isWatching) => {
 
   #related, .ytp-endscreen-next, .ytp-endscreen-previous, .videowall-endscreen {
     display: block;
+  }
+
+  a#endpoint[title='Shorts'],
+  .ytd-rich-section-renderer[is-shorts],
+  .ytd-reel-shelf-renderer,
+  #dismissible:has(span[aria-label="Shorts"]) {
+    display: flex !important;
   }
 
   #video-title, #above-the-fold .ytd-watch-metadata {

@@ -9,6 +9,7 @@ const DEFAULT = {
   focusHome: true,
   isCommentsHidden: false,
   isReqHidden: false,
+  isShortsHidden: false,
   lowercase: true,
 } 
 
@@ -21,6 +22,7 @@ sepia,
 focusHome,
 isCommentsHidden,
 isReqHidden,
+isShortsHidden,
 lowercase
 
 const addMenuSaveActivity = () => {
@@ -70,6 +72,7 @@ const setState = (state) => {
   focusHome.checked = state.focusHome;
   isCommentsHidden.checked = state.isCommentsHidden;
   isReqHidden.checked = state.isReqHidden;
+  isShortsHidden.checked = state.isShortsHidden;
   lowercase.checked = state.lowercase;
 
   const elements = document.querySelectorAll('option-slider');
@@ -96,6 +99,7 @@ const saveState = async () => {
     focusHome: focusHome.checked,
     isCommentsHidden: isCommentsHidden.checked,
     isReqHidden: isReqHidden.checked,
+    isShortsHidden: isShortsHidden.checked,
     lowercase: lowercase.checked,
     fromTab: activeTab.id, 
   }
@@ -123,15 +127,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     .shadowRoot.querySelector("input");
   greyscale = document.querySelector('option-slider[name="thumbnail greyscale"]')
     .shadowRoot.querySelector("input");
-  brightness = document.querySelector('option-slider[name="brightness"]')
+  brightness = document.querySelector('option-slider[name="video brightness"]')
     .shadowRoot.querySelector("input");
-  sepia = document.querySelector('option-slider[name="sepia"]')
+  sepia = document.querySelector('option-slider[name="video sepia"]')
     .shadowRoot.querySelector("input");
   focusHome = document.querySelector('option-checkbox[id="focus-page"]')
     .shadowRoot.querySelector("input");
   isCommentsHidden = document.querySelector('option-checkbox[id="hide-comments"]')
     .shadowRoot.querySelector("input");
   isReqHidden = document.querySelector('option-checkbox[id="hide-reqs"]')
+    .shadowRoot.querySelector("input");
+  isShortsHidden = document.querySelector('option-checkbox[id="hide-shorts"]')
     .shadowRoot.querySelector("input");
   lowercase = document.querySelector('option-checkbox[id="lowercase"]')
     .shadowRoot.querySelector("input");
