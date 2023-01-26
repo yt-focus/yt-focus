@@ -1,7 +1,7 @@
 {
   "name": "YT Focus - Learning Made Easy",
   "version": "1.0.1",
-  "description": "YouTube without all the distractions",
+  "description": "YouTube without all the distractions: search bar only hompage, video blue-light/brightness, hide comments/recommendations",
   "permissions": ["tabs", "activeTab", "storage", "scripting"],
   "host_permissions": ["https://*.youtube.com/*"],
   "background": {
