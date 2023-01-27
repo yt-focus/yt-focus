@@ -42,10 +42,11 @@ What inspired the creation of this project was during my winter break where I wa
 
 So I spent tha last week of my break learning how to create a chorme extension and grinded all the way through until I finished. I wanted to be done before school started, so I wouldn't have to think about it anymore, and so that I could use it.
 
-## Designed on Figma
+## 🎨 Designed on Figma
 #### Here is the link to access the orginal figma files that were used to create this:
-
 https://www.figma.com/file/eOkqXPaJOeN9cLC9SoLUUJ/YT-Focus?node-id=107%3A10&t=xtgtgf7jzVXLMOGl-1 
+
+- additional asset creation was done in Gimp
 ## 🔗 [Demo Video](https://youtu.be/TTm6PwH7StU) (v1.0.0)
 ### - The following are screenshots from (v1.1.0)
 # Distraction Free Homepage
@@ -55,13 +56,10 @@ https://www.figma.com/file/eOkqXPaJOeN9cLC9SoLUUJ/YT-Focus?node-id=107%3A10&t=xt
 # Focus on Learning
 ![video](https://user-images.githubusercontent.com/74576449/214985631-e27a69dd-5cdc-4788-b45c-37c8575a67f6.png)
 
-## Companion Website
+## 🖥️ Companion Website
 This project also has a website (React.js)
 - Link: https://yt-focus.org/ 
 - Repo: https://github.com/yt-focus/yt-focus-website (issues open)
-
-[<img width="1280" alt="image" src="https://user-images.githubusercontent.com/74576449/213829186-f146f6ae-35ca-474c-b236-fcd319a9f698.png">](https://yt-focus.org/)
-
 
 ## Contributing
 Before contributing there's some things you might wanna know. The basic structure:
@@ -76,7 +74,7 @@ Before contributing there's some things you might wanna know. The basic structur
 - there are two listeners in `background.js`, one for storage change and one for when the page changes (url).
 A lot of refactoring can be done. This was my first chrome extension and I'm open to learn from others. 
 
-# ❤️ Support the Project
+# ❤️ Support this Project
 
 There are a few things you can do to support the project:
 
