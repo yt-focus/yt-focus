@@ -47,10 +47,12 @@ So I spent tha last week of my break learning how to create a chorme extension a
 
 https://www.figma.com/file/eOkqXPaJOeN9cLC9SoLUUJ/YT-Focus?node-id=107%3A10&t=xtgtgf7jzVXLMOGl-1 
 ## 🔗 [Demo Video](https://youtu.be/TTm6PwH7StU)
-## Screenshots
-![jomba (1)](https://user-images.githubusercontent.com/74576449/213811114-15bdc822-fa29-4fb4-808f-8c5da2a24fbf.png)
-![joomba (1)](https://user-images.githubusercontent.com/74576449/213811132-3d7eac95-876d-42b6-a4e2-4cbffc11d790.png)
-![hhhh (1)](https://user-images.githubusercontent.com/74576449/213811206-8fdc6b1e-fc23-4a65-972b-ea56ad282823.png)
+## Distraction Free Homepage
+![homepage](https://user-images.githubusercontent.com/74576449/214985469-3e0021cb-c855-47f7-a727-bf90429310ec.png)
+## Less Jarring Search Results
+![search](https://user-images.githubusercontent.com/74576449/214985614-443376ac-3751-4e3c-931f-3c29511b172f.png)
+## Focus on Learning
+![video](https://user-images.githubusercontent.com/74576449/214985631-e27a69dd-5cdc-4788-b45c-37c8575a67f6.png)
 
 ## Companion Website
 This project also has a website (React.js)
