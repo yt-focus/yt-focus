@@ -35,6 +35,15 @@ const getStyles = ({state}, isWatching) => {
       display: ${state.isShortsHidden? "none !important" : "flex !important"};
     }
 
+    .ytd-item-section-renderer:has(.ytd-reel-shelf-renderer){
+      ${
+        state.isShortsHidden
+        ? 'border-top: none; border-bottom: none; margin-top: 0'
+        :'border-top: 1px solid var(--yt-spec-10-percent-layer); border-bottom: 1px solid var(--yt-spec-10-percent-layer); margin-top:1.5rem;'
+        
+      }
+    }
+
     #video-title, #above-the-fold .ytd-watch-metadata {
       text-transform: ${state.lowercase? "lowercase" : "none"} 
     }
@@ -73,6 +82,12 @@ const getStyles = ({state}, isWatching) => {
   .ytd-reel-shelf-renderer,
   #dismissible:has(span[aria-label="Shorts"]) {
     display: flex !important;
+  }
+
+  .ytd-item-section-renderer:has(.ytd-reel-shelf-renderer){
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--yt-spec-10-percent-layer);
+    border-bottom: 1px solid var(--yt-spec-10-percent-layer);
   }
 
   #video-title, #above-the-fold .ytd-watch-metadata {
