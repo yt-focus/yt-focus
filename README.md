@@ -18,8 +18,14 @@
 
 
 <!-- ABOUT THE PROJECT -->
+## 📜 Features (v1.1.0):
+- Recommendation Blur
+- Thumbnail Greyscale
+- Video Brightness
+- Video Blue Light Fliter
+- Hide Comments, Recommendations, and Shorts
+- lowercase titles to combat (CLICK-BAIT)
 ## 📝 Releases
-### ❤️     If you enjoy what we do, please don't forget to leave a review!!!
 - ## 🔗 [Download on the Chrome Web Store: v1.0.0](https://chrome.google.com/webstore/detail/yt-focus/fdekaebckbnpgafknooinjcnelmlhiip?hl=en&authuser=1) 🚀
 - #### Pre-releases: [v1.1.0-pre.1](https://github.com/yt-focus/yt-focus/releases/tag/v1.1.0-pre.1) , [v1.0.0-beta](https://github.com/yt-focus/yt-focus/releases/tag/v1.0.0-beta)
 
@@ -46,15 +52,14 @@ So I spent tha last week of my break learning how to create a chorme extension a
 #### Here is the link to access the orginal figma files that were used to create this:
 https://www.figma.com/file/eOkqXPaJOeN9cLC9SoLUUJ/YT-Focus?node-id=107%3A10&t=xtgtgf7jzVXLMOGl-1 
 
-- additional asset creation was done in Gimp
 ## 🔗 [Demo Video](https://youtu.be/TTm6PwH7StU) (v1.0.0)
-### - The following are screenshots from (v1.1.0)
 # Distraction Free Homepage
 ![homepage](https://user-images.githubusercontent.com/74576449/214985469-3e0021cb-c855-47f7-a727-bf90429310ec.png)
 # Less Jarring Search Results
 ![search](https://user-images.githubusercontent.com/74576449/214985614-443376ac-3751-4e3c-931f-3c29511b172f.png)
 # Focus on Learning
 ![video](https://user-images.githubusercontent.com/74576449/214985631-e27a69dd-5cdc-4788-b45c-37c8575a67f6.png)
+(screeshots from v1.1.0)
 
 ## 🖥️ Companion Website
 This project also has a website (React.js)
@@ -78,9 +83,11 @@ A lot of refactoring can be done. This was my first chrome extension and I'm ope
 
 There are a few things you can do to support the project:
 
+- Leave a review on the Chrome Web Store ❤️
 - Star the repository (and follow me on GitHub for more)
-- Share and upvote on sites like Twitter, Reddit, Hacker News, and on the Web Store
+- Share and upvote on sites like Twitter, Reddit, Hacker News
 - Report any bugs, glitches, or errors that you find
+- Share any feedback you have!
 
 These things motivate me to to keep sharing what I build, and let me know
 that my work is appreciated! They also help me improve the
