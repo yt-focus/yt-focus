@@ -54,11 +54,11 @@ https://www.figma.com/file/eOkqXPaJOeN9cLC9SoLUUJ/YT-Focus?node-id=107%3A10&t=xt
 
 ## 🔗 [Demo Video](https://youtu.be/TTm6PwH7StU) (v1.0.0)
 # Distraction Free Homepage
-![homepage](https://user-images.githubusercontent.com/74576449/214985469-3e0021cb-c855-47f7-a727-bf90429310ec.png)
+[![homepage](https://user-images.githubusercontent.com/74576449/214985469-3e0021cb-c855-47f7-a727-bf90429310ec.png)](https://chrome.google.com/webstore/detail/yt-focus/fdekaebckbnpgafknooinjcnelmlhiip?hl=en&authuser=1)
 # Less Jarring Search Results
-![search](https://user-images.githubusercontent.com/74576449/214985614-443376ac-3751-4e3c-931f-3c29511b172f.png)
+[![search](https://user-images.githubusercontent.com/74576449/214985614-443376ac-3751-4e3c-931f-3c29511b172f.png)](https://chrome.google.com/webstore/detail/yt-focus/fdekaebckbnpgafknooinjcnelmlhiip?hl=en&authuser=1)
 # Focus on Learning
-![video](https://user-images.githubusercontent.com/74576449/214985631-e27a69dd-5cdc-4788-b45c-37c8575a67f6.png)
+[![video](https://user-images.githubusercontent.com/74576449/214985631-e27a69dd-5cdc-4788-b45c-37c8575a67f6.png)](https://chrome.google.com/webstore/detail/yt-focus/fdekaebckbnpgafknooinjcnelmlhiip?hl=en&authuser=1)
 (screeshots from v1.1.0)
 
 ## 🖥️ Companion Website
