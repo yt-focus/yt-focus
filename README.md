@@ -46,12 +46,13 @@ So I spent tha last week of my break learning how to create a chorme extension a
 #### Here is the link to access the orginal figma files that were used to create this:
 
 https://www.figma.com/file/eOkqXPaJOeN9cLC9SoLUUJ/YT-Focus?node-id=107%3A10&t=xtgtgf7jzVXLMOGl-1 
-## 🔗 [Demo Video](https://youtu.be/TTm6PwH7StU)
-## Distraction Free Homepage
+## 🔗 [Demo Video](https://youtu.be/TTm6PwH7StU) (v1.0.0)
+### - The following are screenshots from (v1.1.0)
+# Distraction Free Homepage
 ![homepage](https://user-images.githubusercontent.com/74576449/214985469-3e0021cb-c855-47f7-a727-bf90429310ec.png)
-## Less Jarring Search Results
+# Less Jarring Search Results
 ![search](https://user-images.githubusercontent.com/74576449/214985614-443376ac-3751-4e3c-931f-3c29511b172f.png)
-## Focus on Learning
+# Focus on Learning
 ![video](https://user-images.githubusercontent.com/74576449/214985631-e27a69dd-5cdc-4788-b45c-37c8575a67f6.png)
 
 ## Companion Website
@@ -74,6 +75,20 @@ Before contributing there's some things you might wanna know. The basic structur
 - styles are applied with `chrome.scripting.insertCSS` throughout `background.js`. You can see the main code for that at the top of `background.js` under the function `getStyles()`.
 - there are two listeners in `background.js`, one for storage change and one for when the page changes (url).
 A lot of refactoring can be done. This was my first chrome extension and I'm open to learn from others. 
+
+# ❤️ Support the Project
+
+There are a few things you can do to support the project:
+
+- Star the repository (and follow me on GitHub for more)
+- Share and upvote on sites like Twitter, Reddit, Hacker News, and on the Web Store
+- Report any bugs, glitches, or errors that you find
+
+These things motivate me to to keep sharing what I build, and let me know
+that my work is appreciated! They also help me improve the
+project. Thanks in advance!
+
+- You can donate, but I'd rather the former. I code for pleasure, not for money.
 
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
