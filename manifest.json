@@ -1,6 +1,6 @@
 {
   "name": "YT Focus - Learning Made Easy",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "YouTube without all the distractions",
   "permissions": ["tabs", "activeTab", "storage", "scripting"],
   "host_permissions": ["https://*.youtube.com/*"],
