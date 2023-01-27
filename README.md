@@ -74,7 +74,7 @@ Before contributing there's some things you might wanna know. The basic structur
 - there are two listeners in `background.js`, one for storage change and one for when the page changes (url).
 A lot of refactoring can be done. This was my first chrome extension and I'm open to learn from others. 
 
-# ❤️ Support this Project
+# ❤️ Support This Project
 
 There are a few things you can do to support the project:
 
