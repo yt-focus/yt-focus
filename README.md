@@ -49,6 +49,12 @@ What inspired the creation of this project was during my winter break where I wa
 So I spent tha last week of my break learning how to create a chorme extension and grinded all the way through until I finished. I wanted to be done before school started, so I wouldn't have to think about it anymore, and so that I could use it.
 
 ## 🎨 Designed on Figma
+
+</br>
+<div align="center" class="pic">
+<img width="203" alt="image" src="https://user-images.githubusercontent.com/74576449/215507956-a7411930-7d54-4db9-8afb-a815bd4c9981.png">
+</div>
+
 #### Here is the link to access the orginal figma files that were used to create this:
 https://www.figma.com/file/eOkqXPaJOeN9cLC9SoLUUJ/YT-Focus?node-id=107%3A10&t=xtgtgf7jzVXLMOGl-1 
 
