@@ -238,10 +238,16 @@ chrome.runtime.onInstalled.addListener((details) => {
 //Only expecting a message on navigate from content script
 chrome.runtime.onMessage.addListener(
   async function(request, sender, sendResponse) {
-    await chrome.scripting.removeCSS({
-      files: ["/scripts/styles/focus-home.css"],
-      target: { tabId: sender.tab.id },
-    });
+    
+    let url = new URL(sender.tab.url);
+    let pathname = url.pathname.split("/")[1];
+    
+    if(pathname !== "") {
+      await chrome.scripting.removeCSS({
+        files: ["/scripts/styles/focus-home.css"],
+        target: { tabId: sender.tab.id },
+      });
+    }
   }
 );
 
