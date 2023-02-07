@@ -39,7 +39,7 @@ const getStyles = ({state}, isWatching) => {
       ${
         state.isShortsHidden
         ? 'border-top: none; border-bottom: none; margin-top: 0'
-        :'border-top: 1px solid var(--yt-spec-10-percent-layer); border-bottom: 1px solid var(--yt-spec-10-percent-layer); margin-top:1.5rem;'
+        :'border-top: 1px solid var(--yt-spec-10-percent-layer); border-bottom: 1px solid var(--yt-spec-10-percent-layer); margin-top:0;'
         
       }
     }
@@ -85,7 +85,7 @@ const getStyles = ({state}, isWatching) => {
   }
 
   .ytd-item-section-renderer:has(.ytd-reel-shelf-renderer){
-    margin-top: 1.5rem;
+    margin-top: auto;
     border-top: 1px solid var(--yt-spec-10-percent-layer);
     border-bottom: 1px solid var(--yt-spec-10-percent-layer);
   }
@@ -98,6 +98,8 @@ const getStyles = ({state}, isWatching) => {
 }
 
 const applyFocusHome = (tab, pathname) => {
+
+  
 
   chrome.storage.sync.get(["state"]).then(async (result) => {
 
@@ -153,6 +155,7 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
 
     if (tab.url.includes("youtube.com")) {
   
+
       applyFocusHome(tab, pathname);
 
     }
@@ -232,5 +235,13 @@ chrome.runtime.onInstalled.addListener((details) => {
   
 });
   
-  
+//Only expecting a message on navigate from content script
+chrome.runtime.onMessage.addListener(
+  async function(request, sender, sendResponse) {
+    await chrome.scripting.removeCSS({
+      files: ["/scripts/styles/focus-home.css"],
+      target: { tabId: sender.tab.id },
+    });
+  }
+);
 
