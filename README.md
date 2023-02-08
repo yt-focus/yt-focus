@@ -26,7 +26,7 @@
 - Hide Comments, Recommendations, and Shorts
 - lowercase titles to combat (CLICK-BAIT)
 ## 📝 Releases
-- ## 🔗 [Download on the Chrome Web Store: v1.1.0](https://chrome.google.com/webstore/detail/yt-focus/fdekaebckbnpgafknooinjcnelmlhiip?hl=en&authuser=1) 🚀
+- ## 🔗 [Download on the Chrome Web Store: v1.1.1](https://chrome.google.com/webstore/detail/yt-focus/fdekaebckbnpgafknooinjcnelmlhiip?hl=en&authuser=1) 🚀
 - #### Pre-releases: [v1.1.1-pre.1](https://github.com/yt-focus/yt-focus/releases/tag/v1.1.1-pre.1), [v1.1.0-pre.2](https://github.com/yt-focus/yt-focus/releases/tag/v1.1.1-pre.2) , [v1.0.0-beta](https://github.com/yt-focus/yt-focus/releases/tag/v1.0.0-beta)
 
 ## 💿 How to Run 
