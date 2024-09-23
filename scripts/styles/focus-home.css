@@ -75,3 +75,8 @@ input {
     top: 0.7em;
     background-color: var(--ytd-searchbox-background);
 }
+
+/* Don't remember why I did this
+.ytd-rich-grid-row {
+    filter: opacity(0) !important;
+} */

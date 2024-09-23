@@ -4,6 +4,10 @@ const getStyles = ({state}, isWatching) => {
   const blurAmount = isWatching? state.reqBlur : 0;
   if(state.onSwitch)
     return `
+    yt-icon-button.ytd-notification-topbar-button-renderer {
+      display: none;
+    }
+
     img.yt-core-image, .ytp-videowall-still-image, .ytp-cued-thumbnail-overlay {
       filter: blur(${blurAmount}px) grayscale(${state.greyscale}%) ;
     }
@@ -22,7 +26,10 @@ const getStyles = ({state}, isWatching) => {
 
     .ytd-comments {
       display: ${state.isCommentsHidden? "none": "block"};
+      padding-bottom: 30rem;
     }
+
+
 
     #related, .ytp-endscreen-next, .ytp-endscreen-previous, .videowall-endscreen {
       display: ${state.isReqHidden? "none": "block"};
@@ -53,6 +60,10 @@ const getStyles = ({state}, isWatching) => {
     }
     `
   return `
+  yt-icon-button.ytd-notification-topbar-button-renderer {
+      display: block;
+  }
+  
   img.yt-core-image, .ytp-videowall-still-image, .ytp-cued-thumbnail-overlay {
     filter: blur(0px) grayscale(0%)
   }
@@ -71,6 +82,7 @@ const getStyles = ({state}, isWatching) => {
 
   .ytd-comments {
     display: block
+    padding-bottom: 30rem;
   }
 
   #related, .ytp-endscreen-next, .ytp-endscreen-previous, .videowall-endscreen {

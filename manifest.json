@@ -1,7 +1,7 @@
 {
   "name": "YT Focus - Learning Made Easy",
   "version": "1.1.2",
-  "description": "Get Rid of Distractions on Youtube | Focus Homepage, Hide Shorts/Comments/Recommendations, filter Blue-light & Brightness, and lowercase click-bait titles! ",
+  "description": "YouTube Without The Distractions | Focus Homepage, Hide Shorts/Comments/Recommendations and more...",
   "permissions": ["tabs", "activeTab", "storage", "scripting"],
   "host_permissions": ["https://*.youtube.com/*"],
   "background": {
