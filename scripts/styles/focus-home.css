@@ -76,6 +76,10 @@ input {
     background-color: var(--ytd-searchbox-background);
 }
 
+div#end.style-scope.ytd-masthead {
+    z-index: -1 !important;
+}
+
 /* Don't remember why I did this
 .ytd-rich-grid-row {
     filter: opacity(0) !important;
