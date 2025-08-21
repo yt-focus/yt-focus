@@ -244,23 +244,17 @@ chrome.storage.onChanged.addListener( () => {
     }
   });
 })
-
-
 chrome.runtime.onInstalled.addListener((details) => {
-
-  if(details.reason == "install") {
-
-    chrome.tabs.create({
-      url: "https://yt-focus.org/help"
-    });
+  if (details.reason === "install") {
+    chrome.tabs.create({ url: "https://yt-focus.org/help" });
+  } else if (details.reason === "update") {
+    chrome.tabs.create({ url: "https://github.com/yt-focus/yt-focus/releases" });
   }
-  
 });
-  
+
 //Only expecting a message on navigate from content script
 chrome.runtime.onMessage.addListener(
   async function(request, sender, sendResponse) {
-    
     let url = new URL(sender.tab.url);
     let pathname = url.pathname.split("/")[1];
     
