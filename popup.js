@@ -10,6 +10,7 @@ const DEFAULT = {
   isCommentsHidden: false,
   isReqHidden: false,
   isShortsHidden: false,
+  shortsTimer: true,
   lowercase: true,
 } 
 
@@ -23,6 +24,7 @@ focusHome,
 isCommentsHidden,
 isReqHidden,
 isShortsHidden,
+shortsTimer,
 lowercase
 
 const addMenuSaveActivity = () => {
@@ -73,6 +75,7 @@ const setState = (state) => {
   isCommentsHidden.checked = state.isCommentsHidden;
   isReqHidden.checked = state.isReqHidden;
   isShortsHidden.checked = state.isShortsHidden;
+  shortsTimer.checked = state.shortsTimer;
   lowercase.checked = state.lowercase;
 
   const elements = document.querySelectorAll('option-slider');
@@ -100,6 +103,7 @@ const saveState = async () => {
     isCommentsHidden: isCommentsHidden.checked,
     isReqHidden: isReqHidden.checked,
     isShortsHidden: isShortsHidden.checked,
+  shortsTimer: shortsTimer.checked,
     lowercase: lowercase.checked,
     fromTab: activeTab.id, 
   }
@@ -138,6 +142,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   isReqHidden = document.querySelector('option-checkbox[id="hide-reqs"]')
     .shadowRoot.querySelector("input");
   isShortsHidden = document.querySelector('option-checkbox[id="hide-shorts"]')
+    .shadowRoot.querySelector("input");
+  shortsTimer = document.querySelector('option-checkbox[id="shorts-timer"]')
     .shadowRoot.querySelector("input");
   lowercase = document.querySelector('option-checkbox[id="lowercase"]')
     .shadowRoot.querySelector("input");

@@ -8,8 +8,8 @@ const getStyles = ({state}, isWatching) => {
       display: none;
     }
 
-    img.yt-core-image, .ytp-videowall-still-image, .ytp-cued-thumbnail-overlay {
-      filter: blur(${blurAmount}px) grayscale(${state.greyscale}%) ;
+    .yt-thumbnail-view-model__image {
+      filter: blur(${blurAmount}px) grayscale(${state.greyscale}%) !important;
     }
 
     #logo-icon {
@@ -49,6 +49,16 @@ const getStyles = ({state}, isWatching) => {
         :'border-top: 1px solid var(--yt-spec-10-percent-layer); border-bottom: 1px solid var(--yt-spec-10-percent-layer); margin-top:0;'
         
       }
+    }
+
+    grid-shelf-view-model.ytGridShelfViewModelHost.ytd-item-section-renderer{
+    
+    ${
+      state.isShortsHidden
+      ? 'display: none !important; border-top: none; border-bottom: none; margin-top: 0'
+      : 'display: flex !important; border-top: 1px solid var(--yt-spec-10-percent-layer); border-bottom: 1px solid var(--yt-spec-10-percent-layer); margin-top: 24px;'
+    }
+    
     }
 
     #video-title, #above-the-fold .ytd-watch-metadata {
