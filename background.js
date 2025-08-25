@@ -8,7 +8,7 @@ const getStyles = ({state}, isWatching) => {
       display: none;
     }
 
-    .yt-thumbnail-view-model__image {
+    .ytThumbnailViewModelImage {
       filter: blur(${blurAmount}px) grayscale(${state.greyscale}%) !important;
     }
 
