@@ -247,9 +247,10 @@ chrome.storage.onChanged.addListener( () => {
 chrome.runtime.onInstalled.addListener((details) => {
   if (details.reason === "install") {
     chrome.tabs.create({ url: "https://yt-focus.org/help" });
-  } else if (details.reason === "update") {
-    chrome.tabs.create({ url: "https://github.com/yt-focus/yt-focus/releases" });
-  }
+  } 
+  // else if (details.reason === "update") {
+  //   chrome.tabs.create({ url: "https://github.com/yt-focus/yt-focus/releases" });
+  // }
 });
 
 //Only expecting a message on navigate from content script
